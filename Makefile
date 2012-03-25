@@ -6,25 +6,24 @@ HYAKKO = hyakko
 DOTFILES_PATH ?= $(CURDIR)/../dot-files
 SUFFIX = .html
 
-all: clean bash xmonad
+all: clean prepare bash xmonad
 
 clean:
 	rm -rf home/*
 	rm -rf etc/*
 
-# TODO: change to patterns to avboid repetition
-# TODO: process the docs to remove stylesheets and other nonsense
-bash:
+prepare:
 	mkdir -p home/bash
-	$(SHOCCO) $(DOTFILES_PATH)/home/bashrc > $(CURDIR)/home/bashrc$(SUFFIX)
-	$(SHOCCO) $(DOTFILES_PATH)/home/bash/alias > $(CURDIR)/home/bash/alias$(SUFFIX)
-	$(SHOCCO) $(DOTFILES_PATH)/home/bash/completion > $(CURDIR)/home/bash/completion$(SUFFIX)
-	$(SHOCCO) $(DOTFILES_PATH)/home/bash/dircolors > $(CURDIR)/home/bash/dircolors$(SUFFIX)
-	$(SHOCCO) $(DOTFILES_PATH)/home/bash/functions > $(CURDIR)/home/bash/functions$(SUFFIX)
-	$(SHOCCO) $(DOTFILES_PATH)/home/bash/prompt > $(CURDIR)/home/bash/prompt$(SUFFIX)
-
-xmonad:
 	mkdir -p home/xmonad/bin
+
+home/bash%:
+	$(SHOCCO) $(DOTFILES_PATH)/$@ > $(@D)/$(@F)$(SUFFIX)
+
+# TODO: process the docs to remove stylesheets and other nonsense
+bash: home/bashrc home/bash/alias home/bash/completion home/bash/dircolors home/bash/functions home/bash/prompt
+
+# TODO: process the docs to remove stylesheets and other nonsense
+xmonad:
 	$(HYAKKO) $(DOTFILES_PATH)/home/xmonad/xmonad.hs
 	mv docs/xmonad.html $(CURDIR)/home/xmonad/xmonad.hs$(SUFFIX)
 	rm -rf docs
