@@ -8,18 +8,22 @@
           "*actions": "defaultRoute"
         },
         defaultRoute: function(actions) {
-          this.updateMenu();
-          return console.log("Received request to route to: " + actions);
-        },
-        updateMenu: function() {
-          var defaultUrl, url;
-          defaultUrl = "#/home";
-          url = document.location.hash;
-          if (!(url != null) || url === "") url = defaultUrl;
-          if (url.split("/").length > 2) url = "#/" + url.split("/")[1];
-          if (!(this.routes[url.split("#")[1]] != null)) url = defaultUrl;
-          $("#header .nav > li").removeClass("active");
-          return $('#header .nav a[href="' + url + '"]').parent().addClass("active");
+          if (!(actions != null) || actions === "") return;
+          console.log("Received request to route to: " + actions);
+          return require(["dojo/_base/xhr", "dojo/dom"], function(xhr, dom) {
+            var deferred;
+            console.log("Loading file...");
+            return deferred = dojo.xhrGet({
+              url: "/" + actions + ".html",
+              handleAs: "text",
+              load: function(data) {
+                return dom.byId("body").innerHTML = data;
+              },
+              error: function(error) {
+                return console.log(error);
+              }
+            });
+          });
         }
       });
       app = new Router();

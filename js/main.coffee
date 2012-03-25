@@ -6,28 +6,17 @@ $(document).ready () ->
                 "*actions"       : "defaultRoute"
 
             defaultRoute: (actions) ->
-                @updateMenu()
+                return if !actions? or actions is ""
                 console.log "Received request to route to: #{actions}"
-
-            # updateMenu updates the currently-selected item in the navbar. If the
-            # current hash mark is not or does not match an existing route, we
-            # default to #/home. Further, if it is a multi-part route, we chop off
-            # all but the first portion of the route before attempting a match.
-            # That is "#/projects/1234" will be "#/projects".
-            updateMenu: () ->
-                defaultUrl = "#/home"
-                url = document.location.hash
-                if !url? or url is ""
-                    url = defaultUrl
-
-                if url.split("/").length > 2
-                    url = "#/" + url.split("/")[1]
-                
-                if !@.routes[url.split("#")[1]]?
-                    url = defaultUrl
-                
-                $("#header .nav > li").removeClass("active")
-                $('#header .nav a[href="'+url+'"]').parent().addClass("active")
+                require ["dojo/_base/xhr", "dojo/dom"], (xhr, dom) ->
+                    console.log "Loading file..."
+                    deferred = dojo.xhrGet
+                        url: "/#{actions}.html"
+                        handleAs: "text"
+                        load: (data) ->
+                            dom.byId("body").innerHTML = data
+                        error: (error) ->
+                            console.log error
 
         # Create a new instance of our application.
         app = new Router()
