@@ -1,0 +1,49 @@
+<div id=container>
+    
+    <table cellspacing=0 cellpadding=0>
+    <thead>
+      <tr>
+        <th class=docs><h1>completion</h1></th>
+        <th class=code></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr><td class='docs'><p>The completion commands contained herein are to extend the existing bash
+completion functions to my aliases.</p>
+
+<p>This script has been tested on <a href="http://www.archlinux.org">Arch Linux</a> with Bash 4.2.24.</p>
+
+</td><td class=code><div class=highlight><pre>
+<span class="c">#!/bin/bash</span>
+
+</pre></div></td></tr><tr><td class=docs>
+
+<h2>Git</h2>
+
+</td><td class=code><div class=highlight><pre>
+<span class="nb">complete</span> -o default -o nospace -F _git_pull gpull
+<span class="nb">complete</span> -o default -o nospace -F _git_push gpush
+<span class="nb">complete</span> -o default -o nospace -F _git_commit gc
+<span class="nb">complete</span> -o default -o nospace -F _git_branch gb
+<span class="nb">complete</span> -o default -o nospace -F _git_checkout gco
+<span class="nb">complete</span> -o default -o nospace -F _git_diff gdiff
+<span class="nb">complete</span> -o default -o nospace -F _git_log gl
+
+</pre></div></td></tr><tr><td class=docs>
+
+<h2>Sudo</h2>
+
+</td><td class=code><div class=highlight><pre>
+<span class="nb">complete</span> -o default -o nospace -F _root_command s
+
+
+</pre></div></td></tr><tr><td class=docs>
+
+</td><td class=code><div class=highlight><pre>
+
+</pre></div></td></tr><tr><td class=docs></td><td class='code'></td></tr>
+    </tbody>
+    </table>
+</div>
+
+
