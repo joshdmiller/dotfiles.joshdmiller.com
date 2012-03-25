@@ -5,32 +5,48 @@
 
         <link rel="stylesheet/less" href="css/main.less">
         <script type="text/javascript" src="js/less.js"></script>
-        
+        <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/dojo/1.7.2/dijit/themes/claro/claro.css">
+
+        <script>
+		var dojoConfig = {
+			async: true,
+			/*packages: [{
+				name: "js",
+				location: location.pathname.replace(/\/[^/]+$/, '')
+			}]*/
+		};
+	</script>
+        <script src="http://ajax.googleapis.com/ajax/libs/dojo/1.7.2/dojo/dojo.js"></script>
+
         <script type="text/javascript" src="js/jquery-1.7.1.js"></script>
         <script type="text/javascript" src="js/underscore.js"></script>
         <script type="text/javascript" src="js/backbone.js"></script>
-        <script type="text/javascript" src="js/main.js"></script>
     </head>
-    <body>
+    <body class="claro">
         <div class="navbar navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="container-fluid">
                     <a class="brand" href="#">dotfiles.joshdmiller.com</a>
                     <ul class="nav pull-right">
-                        <li><a href="https://www.github.com/joshdmiller/dot-files">View Repository on Github</a></li>
+                        <li><a href="https://www.github.com/joshdmiller/dot-files">View on Github</a></li>
                         <li class="divider-vertical"></li>
-                        <li><a href="http://www.joshdmiller.com">joshdmiller.com</a></li>
+                        <li><a href="http://www.joshdmiller.com">Return to joshdmiller.com</a></li>
                     </ul>
                 </div>
             </div>
         </div>
 
         <div id="menu">
-            Menu
+            <h3>Browse by Path</h3>
+
+            <div id="tree">
+            </div>
         </div>
 
         <div id="body">
             Body
         </div>
+
+        <script type="text/javascript" src="js/main.js"></script>
     </body>
 </html>

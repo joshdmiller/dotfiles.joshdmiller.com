@@ -1,0 +1,30 @@
+{
+    identifier: 'id',
+    label: 'name',
+    items: [
+        { id: 'root', name: 'Dot Files', children: [
+            { id: 'home', name: '/home/joshua', children: [
+                { id: 'home/bash', name: '.bash', children: [
+                    { id: 'home/bash/alias', name: 'alias' },
+                    { id: 'home/bash/completion', name: 'completion' },
+                    { id: 'home/bash/dircolors', name: 'dircolors' },
+                    { id: 'home/bash/functions', name: 'functions' },
+                    { id: 'home/bash/prompt', name: 'prompt' },
+                ]},
+                { id: 'home/xmonad', name: '.xmonad', children: [
+                    { id: 'home/xmonad/bin', name: 'bin', children: [
+                        { id: 'home/xmonad/bin/conky_bar', name: 'conky_bar' },
+                        { id: 'home/xmonad/bin/conky_bar_bottom_left', name: 'conky_bar_bottom_left' },
+                        { id: 'home/xmonad/bin/conky_bar_bottom_right', name: 'conky_bar_bottom_right' },
+                        { id: 'home/xmonad/bin/volume.sh', name: 'volume.sh' }
+                    ] },
+                    { id: 'home/xmonad/xmonad.hs', name: 'xmonad.hs' },
+                ]},
+                { id: 'home/bashrc', name: '.bashrc', url: '#home/bashrc' },
+            ]},
+            { id: 'etc', name: '/etc', children: [
+                { id: 'etc/sudoers', name: 'sudoers', url: '#home/sudoers' }
+            ] }
+        ]}
+    ]
+}
