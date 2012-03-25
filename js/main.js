@@ -20,7 +20,8 @@
                 return registry.byId("body").set("content", data);
               },
               error: function(error) {
-                return console.log(error);
+                console.log(error);
+                return registry.byId("body").set("content", "<h4 class='error'>Unfortunately, I cannot find the document '" + actions + "'</h4>");
               }
             });
           });

@@ -25,6 +25,7 @@ $(document).ready () ->
                             registry.byId("body").set "content", data
                         error: (error) ->
                             console.log error
+                            registry.byId("body").set "content", "<h4 class='error'>Unfortunately, I cannot find the document '"+actions+"'</h4>"
 
         # Create a new instance of our application.
         app = new Router()
