@@ -9,18 +9,15 @@
 
         <script>
 		var dojoConfig = {
-			async: true,
-			/*packages: [{
-				name: "js",
-				location: location.pathname.replace(/\/[^/]+$/, '')
-			}]*/
+                        async: true,
+                        dojoBlankHtmlUrl: '/blank.html',
+			packages: [{
+				name: "citeplasm",
+				location: '/js/citeplasm'
+			}]
 		};
 	</script>
         <script src="http://ajax.googleapis.com/ajax/libs/dojo/1.7.2/dojo/dojo.js"></script>
-
-        <script type="text/javascript" src="js/jquery-1.7.1.js"></script>
-        <script type="text/javascript" src="js/underscore.js"></script>
-        <script type="text/javascript" src="js/backbone.js"></script>
     </head>
     <body class="claro">
         <style type="text/css">
