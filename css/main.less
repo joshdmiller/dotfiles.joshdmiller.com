@@ -1,0 +1,103 @@
+// MAIN STYLESHEET FOR DOTFILES.JOSHDMILLER.COM
+// -------------------------------------------
+
+// BOOTSTRAP INCLUSIONS
+// --------------------
+
+@import "bootstrap/variables.less";
+@import "bootstrap/mixins.less";
+@import "bootstrap/reset.less";
+@import "bootstrap/type.less";
+@import "bootstrap/navs.less";
+@import "bootstrap/navbar.less";
+@import "bootstrap/utilities.less";
+
+// BASICS
+// ------
+
+body, html {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    font-family: sans;
+}
+
+body {
+    background: @grayLighter;
+}
+
+// GRID LAYOUT
+// -----------
+
+// Fixed (940px)
+#grid > .core(@gridColumnWidth, @gridGutterWidth);
+
+// Fluid (940px)
+#grid > .fluid(@fluidGridColumnWidth, @fluidGridGutterWidth);
+
+
+// Layouts
+// Fixed-width and fluid (with sidebar) layouts
+// --------------------------------------------
+
+// Container (centered, fixed-width layouts)
+.container {
+  .container-fixed();
+}
+
+// Fluid layouts (left aligned, with sidebar, min- & max-width content)
+.container-fluid {
+  padding-left: @gridGutterWidth;
+  padding-right: @gridGutterWidth;
+  .clearfix();
+}
+
+
+// NAVBAR
+// ------
+
+.navbar {
+    .brand {
+        text-decoration: none;
+        color: @grayLight;
+    }
+
+    .brand:hover, .brand:active {
+        color: @white;
+    }
+}
+
+// MENU
+// ----
+
+#menu {
+    position: fixed;
+    overflow-y: auto;
+    overflow-x: hidden;
+    top: @navbarHeight;
+    bottom: 0;
+    width: 300px;
+    left: 0px;
+    padding: 20px;
+
+    background: @grayLighter;
+}
+
+// BODY
+// ----
+
+#body {
+    position: fixed;
+    overflow: auto;
+    top: @navbarHeight;
+    bottom: 0;
+    right: 0;
+    left: 300px;
+
+    .box-shadow(inset 0 0 10px rgba(0, 0, 0, .5));
+    border-left: 1px solid @grayLight;
+    background: @white;
+    padding: 20px;
+}
+
