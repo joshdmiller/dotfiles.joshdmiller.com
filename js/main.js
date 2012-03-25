@@ -10,6 +10,7 @@
         defaultRoute: function(actions) {
           if (!(actions != null) || actions === "") return;
           console.log("Received request to route to: " + actions);
+          registry.byId("body").set("content", "<div class='loadingOverlay'></div>");
           return require(["dojo/_base/xhr"], function(xhr) {
             var deferred;
             console.log("Loading file...");
@@ -71,7 +72,8 @@
           }
         });
       });
-      return Backbone.history.start();
+      Backbone.history.start();
+      return domStyle.set(dom.byId("preloader"), "display", "none");
     });
   });
 

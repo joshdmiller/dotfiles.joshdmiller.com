@@ -16,6 +16,11 @@ $(document).ready () ->
             defaultRoute: (actions) ->
                 return if !actions? or actions is ""
                 console.log "Received request to route to: #{actions}"
+
+                # Before we load the page, we create the loading overlay.
+                registry.byId("body").set "content", "<div class='loadingOverlay'></div>"
+
+                # Time to load the page.
                 require ["dojo/_base/xhr"], (xhr) ->
                     console.log "Loading file..."
                     deferred = dojo.xhrGet
@@ -53,7 +58,11 @@ $(document).ready () ->
 
         # Collapse and Uncollapse the tree menu when a#collapse is clicked.
         bind dom.byId("collapse"), "click", (event) ->
+            # First, prevent the browser from following the link, which would
+            # trigger the router.
             event.preventDefault()
+
+            # Now run the effect and do what we need to do.
             require ["dojo/_base/fx"], (fx) ->
                 if domStyle.get(dom.byId("body"), "left") is 0
                     fx.fadeIn
@@ -78,4 +87,7 @@ $(document).ready () ->
 
         # Launch the router and go to the provided route
         Backbone.history.start()
+
+        # Now that everything's peachy, remove the preloader
+        domStyle.set(dom.byId("preloader"), "display", "none")
 
