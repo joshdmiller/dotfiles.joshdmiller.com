@@ -1,1 +1,2 @@
 baseurl: "/"
+exclude: [ "main.coffee", "Router.coffee", "main.less", "bootstrap" ]
