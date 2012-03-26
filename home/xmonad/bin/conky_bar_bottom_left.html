@@ -1,0 +1,137 @@
+<div id=container>
+    
+    <table cellspacing=0 cellpadding=0>
+    <thead>
+      <tr>
+        <th class=docs><h1>conky_bar_bottom_left</h1></th>
+        <th class=code></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr><td class='docs'><p>The <strong><code>home/xmonad/bin/conky_bar_bottom_left</code></strong> file contains the definition of the
+conky information that will be piped to the dzen bar that is drawn at the
+bottom left of the screen.</p>
+
+</td><td class=code><div class=highlight><pre>
+<span class="c">#!/usr/bin/conky</span>
+
+</pre></div></td></tr><tr><td class=docs>
+
+<h2>Configuration</h2>
+
+</td><td class=code><div class=highlight><pre>
+
+</pre></div></td></tr><tr><td class=docs>
+
+<p>The <code>background</code> variable forces conky to daemonize itself to the background
+once it's launched.</p>
+
+</td><td class=code><div class=highlight><pre>
+background yes
+
+</pre></div></td></tr><tr><td class=docs>
+
+<p>The <code>double_buffer</code> variable asks conky to use the Xdbe extension to reduce
+flicker. This probably isn't required anymore.</p>
+
+</td><td class=code><div class=highlight><pre>
+double_buffer yes 
+
+</pre></div></td></tr><tr><td class=docs>
+
+<p><code>out_to_console</code> simply tells conky to print to stdout, which is necessary here
+because we are piping the output to dzen.</p>
+
+</td><td class=code><div class=highlight><pre>
+out_to_console yes 
+
+</pre></div></td></tr><tr><td class=docs>
+
+<p><code>own_window</code> tells conky to draw its own window.</p>
+
+</td><td class=code><div class=highlight><pre>
+own_window yes
+
+</pre></div></td></tr><tr><td class=docs>
+
+<p><code>own_window_type</code> tells conky to draw the window in such a way as to always be
+visible at the lowest layer (i.e. the desktop) and to not use any window
+decorations. This option combined with the XMonad struts layout option
+provide the appearance of a standard panel/taskbar.</p>
+
+</td><td class=code><div class=highlight><pre>
+own_window_type desktop
+
+</pre></div></td></tr><tr><td class=docs>
+
+<p><code>update_interval</code> is how frequently in seconds conky should re-output the content.</p>
+
+</td><td class=code><div class=highlight><pre>
+update_interval 0.5 
+
+</pre></div></td></tr><tr><td class=docs>
+
+<p><code>font</code> is self-explanatory. One can use xfontsel to pick a font.</p>
+
+</td><td class=code><div class=highlight><pre>
+font -*-clean-*-*-*-*-12-*-*-*-*-*-iso8859-*
+
+</pre></div></td></tr><tr><td class=docs>
+
+<p>These two values tell conky how to connect to MPD to get information.</p>
+
+</td><td class=code><div class=highlight><pre>
+mpd_host localhost
+mpd_port 6600
+
+</pre></div></td></tr><tr><td class=docs>
+
+<h2>Contents</h2>
+
+</td><td class=code><div class=highlight><pre>
+
+</pre></div></td></tr><tr><td class=docs>
+
+<p>The following are commented on all at once because conky does not allow
+unprinted comments after the <code>TEXT</code> declaration.</p>
+
+<p>The <code>TEXT</code> declaration begins the contents of what actually prints to the
+screen. Newlines are preserved, so all lines here end with a backslash to
+draw on one line while maintaining the readability of this file. The five
+lines are described in more detail below:</p>
+
+<ol>
+<li>We start with an empty space for aesthetic reasons.</li>
+<li>The second line sets the foreground (i.e. text) color to green and draws
+an icon of a speaker to the screen, followed by a space.</li>
+<li>The third line changes the foreground color to white and executes the
+<a href="#/home/xmonad/bin/volume.sh">volume.sh</a> script. It ends with a pipe ("|")
+and a space.</li>
+<li>The fourth line changes the foreground color back to green and draws a
+music note icon followed by a space.</li>
+<li>Lastly, we change the foreground color to white and output some MPD status
+information. If mpd_status reports that MPD is playing, we print out the
+"smart" MPD info, which includes title and artist and the elapsed and
+total track lengths; otherwise, we just print the MPD status (e.g.
+"Stopped", "Paused", etc.).</li>
+</ol>
+
+</td><td class=code><div class=highlight><pre>
+TEXT
+ <span class="se">\</span>
+^fg<span class="o">(</span>green<span class="o">)</span>^i<span class="o">(</span><span class="nv">$HOME</span>/.xmonad/icons/spkr_01.xbm<span class="o">)</span> <span class="se">\</span>
+^fg<span class="o">(</span>white<span class="o">)</span><span class="k">${</span><span class="nv">exec</span><span class="p"> </span><span class="nv">$HOME</span><span class="p">/.xmonad/bin/volume.sh</span><span class="k">}</span> | <span class="se">\</span>
+^fg<span class="o">(</span>green<span class="o">)</span>^i<span class="o">(</span><span class="nv">$HOME</span>/.xmonad/icons/note.xbm<span class="o">)</span> <span class="se">\</span>
+^fg<span class="o">(</span>white<span class="o">)</span><span class="k">${</span><span class="nv">if_match</span><span class="p"> </span><span class="s2">&quot;${mpd_status}&quot;</span><span class="p"> ==</span><span class="s2">&quot;Playing&quot;</span><span class="k">}</span><span class="nv">$mpd_smart</span> <span class="o">(</span><span class="nv">$mpd_elapsed</span>/<span class="nv">$mpd_length</span><span class="o">)</span> <span class="nv">$else</span><span class="k">${</span><span class="nv">mpd_status</span><span class="k">}</span><span class="nv">$endif</span> 
+
+
+</pre></div></td></tr><tr><td class=docs>
+
+</td><td class=code><div class=highlight><pre>
+
+</pre></div></td></tr><tr><td class=docs></td><td class='code'></td></tr>
+    </tbody>
+    </table>
+</div>
+
+

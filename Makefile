@@ -6,6 +6,11 @@ HYAKKO = hyakko
 DOTFILES_PATH ?= $(CURDIR)/../dot-files
 SUFFIX = .html
 
+# Definitions of Sources
+SHELL_SCRIPTS := home/bashrc home/bash/alias home/bash/completion home/bash/dircolors home/bash/functions home/bash/prompt home/xmonad/bin/volume.sh home/xmonad/bin/conky_bar_bottom_left home/xmonad/bin/conky_bar_bottom_right home/xmonad/bin/conky_bar
+
+.PHONY: all clean bash xmonad $(SHELL_SCRIPTS)
+
 all: clean prepare bash xmonad
 
 clean:
@@ -16,7 +21,7 @@ prepare:
 	mkdir -p home/bash
 	mkdir -p home/xmonad/bin
 
-home/bash%:
+$(SHELL_SCRIPTS):
 	$(SHOCCO) $(DOTFILES_PATH)/$@ > $(@D)/$(@F)$(SUFFIX)
 	sed -i '/<!DOCTYPE html>/,/<body>/d' $(@D)/$(@F)$(SUFFIX)
 	sed -i 's/<\/body>//' $(@D)/$(@F)$(SUFFIX)
@@ -25,7 +30,7 @@ home/bash%:
 
 bash: home/bashrc home/bash/alias home/bash/completion home/bash/dircolors home/bash/functions home/bash/prompt
 
-xmonad:
+xmonad: home/xmonad/bin/volume.sh home/xmonad/bin/conky_bar_bottom_left home/xmonad/bin/conky_bar_bottom_right home/xmonad/bin/conky_bar
 	$(HYAKKO) $(DOTFILES_PATH)/home/xmonad/xmonad.hs
 	sed -i 's/<\/body>//' docs/xmonad.html
 	sed -i 's/<\/html>//' docs/xmonad.html
