@@ -20,8 +20,24 @@ body, html {
     height: 100%;
     padding: 0;
     margin: 0;
-    font-family: sans;
-    font-size: 12px;
+    font-family: @baseFontFamily;
+    font-size: @baseFontSize;
+    line-height: @baseLineHeight;
+    color: @textColor;
+    background-color: @bodyBackground;
+    text-align: justify;
+}
+
+// Links
+// -----
+
+a {
+  color: @linkColor;
+  text-decoration: none;
+}
+a:hover {
+  color: @linkColorHover;
+  text-decoration: underline;
 }
 
 // GRID LAYOUT
@@ -119,21 +135,56 @@ body, html {
         position: absolute;
     }
 
+    .noncode {
+        margin: 25px;
+
+        p, h1, h2, h3, h4, h5, h6 {
+            padding-top: 10px;
+        }
+
+        h1:first-child {
+            padding-top: 0;
+        }
+
+        pre {
+            padding: 10px;
+            margin: 10px 20px;
+            background: #f8f8ff;
+            border: 1px solid @grayLighter;
+        }
+    }
+
+    .noncode, #container table {
+        // Basic styles for elements of the code docs.
+        p {
+            margin: 0 0 15px 0;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            margin: 0px 0 15px 0;
+        }
+        h1 {
+            margin-top: 10px;
+        }
+        
+        pre, tt, code {
+            font-size: 13px; line-height: 18px;
+            font-family: Menlo, Monaco, Consolas, "Lucida Console", monospace;
+        }
+
+        p tt, p code {
+            background: #f8f8ff;
+            border: 1px solid @grayLighter;
+            font-size: 12px;
+            padding: 0 0.2em;
+        }
+            
+    }
+
     #container {
         position: relative;
 
         table {
 
-            // Basic styles for elements of the code docs.
-            p {
-                margin: 0 0 15px 0;
-            }
-            h1, h2, h3, h4, h5, h6 {
-                margin: 0px 0 15px 0;
-            }
-            h1 {
-                margin-top: 10px;
-            }
             td {
                 border: 0;
                 outline: 0;
@@ -160,19 +211,17 @@ body, html {
                 padding-left: 15px;
             }
 
-            .docs p tt, .docs p code {
-                background: #f8f8ff;
-                border: 1px solid #dedede;
-                font-size: 12px;
-                padding: 0 0.2em;
-            }
-            
             td.code, th.code {
                 padding: 14px 15px 16px 25px;
                 width: 100%;
                 vertical-align: top;
                 background: #f5f5ff;
                 border-left: 1px solid #e5e5ee;
+            
+                pre, tt, code {
+                    margin: 0; 
+                    padding: 0;
+                }
 
                 /*---------------------- Syntax Highlighting -----------------------------*/
                 .hll { background-color: #ffffcc }
@@ -237,13 +286,7 @@ body, html {
                 .vi { color: #19469D }                     /* Name.Variable.Instance */
                 .il { color: #666666 }                     /* Literal.Number.Integer.Long */
             }
-
-            pre, tt, code {
-                font-size: 13px; line-height: 18px;
-                font-family: Menlo, Monaco, Consolas, "Lucida Console", monospace;
-                margin: 0; padding: 0;
-            }
-
+                        
             // The pilwrap/pilcrow is the permalink visible only on hover.
             .pilwrap {
                 position: relative;

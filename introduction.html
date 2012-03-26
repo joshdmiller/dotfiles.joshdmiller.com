@@ -1,1 +1,174 @@
-<h3>Welcome...</h3>
+<div class="noncode">
+    <h1>Introduction</h1>
+
+    <p>
+    Technically speaking, in computing a "dot file" is a hidden directory or
+    file on a UNIX/Linux system that are so named because they are prefixed
+    with a full stop. Dot files within a user's home directory contain most of
+    the user-specific configuration available on a desktop and are configured
+    manually or through the use of tools. 
+    </p><p>
+    While not all strictly dot files, the files contained here are some of the
+    customization I regularly use on my Linux machines as well as on the Linux
+    machines of those whom I convert from the lesser operating systems. They
+    are offered here with plentiful documentation in the hopes that they will
+    be useful to others, whether as an inspiration to explore some different
+    areas of Linux, as a shortcut to get a Linux machine up and running, or as
+    a guide for users not familiar with how to configure some of these
+    applications (like XMonad).
+    </p>
+
+    <p>
+    For information about licensing and credits, please see <a href="#/license">here</a>.
+    </p>
+
+    <h2>How to Use This Site</h2>
+    <p>
+    These configuration files are divided at left by the folders in which they
+    are found on a machine to which these have been installed. The subfolders
+    may not correspond precisely to system locations, but should serve to
+    assist in browsing the tree. For detailed information on where the files
+    can be found on your machine, visit the GitHub page for the dot-files by
+    clicking the "View on GitHub" link in the upper right.
+    </p>
+    
+    <p>
+    Clicking on an entry will load the corresponding file in this pane.
+    Descriptions are contained at left and source code at right, nicely aligned
+    to assist in comprehension. Because the presentation is columnar, you may
+    find this window inconvenient for browsing the file due to space
+    limitations. The menu at left can be collapsed and expanded by clicking the
+    "Toggle Tree Menu" link in the upper right.
+    </p>
+
+    <p>
+    You can always return to this introduction by clicking on the link at left
+    or on the site name in the upper left.
+    </p>
+
+    <h2>Overview</h2>
+    
+    <p>
+    There are two directories at the top level of the tree: my <code>$HOME</code> folder and
+    the <code>/etc</code> directory. <code>/etc</code> contains the system-wide
+    configuration files I often install on a new machine or upon daemon or
+    application installation. There isn't much in terms of surprise or intrigue
+    in these files as they are relatively standard. The magic is in the
+    <code>$HOME</code> folder.
+    </p>
+
+    <p>
+    The <code>$HOME</code> folder is divided into two top-level folders and a
+    file. The file is <a href="#/home/bashrc">.bashrc</a>, the main entry-point
+    to user-specific Bash configuration. This file loads the files within the
+    <code>.bash</code> directory. These files control aliases, helper
+    functions, terminal prompts, executable paths, and much more.
+    </p>
+
+    <p>
+    The second folder is <code>.xmonad</code> with contains all configuration
+    for the <a href="http://www.xmonad.org">xmonad</a> window manager. xmonad is
+    a dynamically-tiling window manager for X11 written in Haskell. xmonad is
+    very speedy and lightweight because its configuration is also written in
+    Haskell and compiled prior to running (it takes only two or three seconds).
+    xmonad can also be compiled on-the-fly while its running so you never have
+    to leave xmonad to change your configuration.
+    </p>
+
+    <p>
+    The Bash and xmonad configurations are discussed in more detail below.
+    </p>
+
+    <h2>Bash Configuration</h2>
+    
+    <p>
+    Fortunately, Bash configuration is fairly straitforward. On most Linux
+    systems, <code>$HOME/.bashrc</code> is the standard configuration file for
+    non-login, interactive shells. That is, this configuration is loaded when
+    you open a virtual console on one your TTYs or a terminal emulator in your
+    desktop environment, but it is not loaded when a script is executed.
+    </p>
+
+    <p>
+    When exploring my configuration, begin with <a
+        href="#/home/bashrc"><code>.bashrc</code></a>. The documentation is
+    quite detailed.
+    </p>
+
+    <p>
+    To use these, simply copy these dot files into your home folder (being sure
+    to rename to <code>.bashrc</code> and <code>.bash/</code>) and re-log-in.
+    The dot files can be downloaded by clicking the "View on GitHub" link at
+    top right and there are more detailed instructions there for installation.
+    </p>
+
+    <h2>XMonad Configuration</h2>
+
+    <p>
+    xmonad is more difficult to set up than Bash, unfortunately. xmonad is a
+    wonderful tiling window manager (my personal favorite) but too many people
+    eschew it because the configuration is complicated and, if you're not a
+    Haskell wizard, not well documented. I am no Haskell wizard, so my
+    configuration is based on many hours of troubleshooting, guess-and-check,
+    API documentation browsing, and gleaning what I can from the configurations
+    of others. I am sure there are improvements to be made, more efficient ways
+    of doing things, and better approaches - but mine works well enough.
+    </p>
+
+    <p>
+    For a user to run xmonad, she must have a properly-created
+    <code>$HOME/.xmonad/xmonad.hs</code> that initializes xmonad and creates a
+    basic setup. There is no useful default environment. Once the file is
+    created, it must be compiled by running the following command as your user
+    - not as root nor with sudo.
+    </p>
+
+    <pre>$ xmonad --recompile</pre>
+
+    <p>
+    If all is well, the command will exit with no complaints. Otherwise, the
+    Haskell compiler (GHC) will provide an error that can be difficult to
+    diagnose without being familiar with Haskell. If you run into one of these errors,
+    I wish you luck. I fixed mine through trial and error and became familiar
+    with Haskell largely through experimenting with xmonad.
+    </p>
+
+    <p>
+    The compiler outputs an executable binary file in the
+    <code>$HOME/.xmonad</code> directory named something like
+    <code>xmonad-x86_64-linux</code> that the xmonad command uses to run your
+    environment. You will also find several other files in that directory that
+    are generated and populated during runtime. We don't need to concern
+    ourselves with those here.
+    </p>
+
+    <p>
+    The <a href="#/home/xmonad/xmonad.hs">xmonad.hs</a> file contains very
+    detailed documentation about exactly what it does, so we won't get into
+    that here. It does, however, reference the files in
+    <code>$HOME/.xmonad/bin</code> so that directory must be copied along with
+    <code>xmonad.hs</code> into the <code>$HOME/.xmonad</code> directory. See
+    the repository of dot-files on GitHub (link at upper right) for more
+    information on installation.
+    </p>
+
+    <h3>See Also</h3>
+
+    <p>
+    For those interested in learning Haskell, there is the wonderful
+    interactive and relatively comprehensive and totally free tutorial <a
+        href="http://www.learnyouahaskell.com">Learn You a Haskell for Great
+        Good</a>. This is not necessary to get started with my configuration
+    nor to make basic changes, but if you want to do something fancy or totally
+    different, this may help.
+    </p>
+
+    <p>
+    There is also a large collection of user configurations available <a
+        href="http://www.haskell.org/haskellwiki/Xmonad/Config_archive">here</a>,
+    but keep in mind many of these are out of date and will require some
+    modifications. They are, however, a great starting point for diving deeper
+    than my configuration allows.
+    </p>
+
+</div>
