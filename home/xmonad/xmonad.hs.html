@@ -1,127 +1,133 @@
-  <div id="container">
-    
-        <table cellpadding="0" cellspacing="0">
-      <thead>
-        <tr>
-          <th class="docs">
-            <h1>
-              xmonad.hs
-            </h1>
-          </th>
-          <th class="code">
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-<tr id='section-1'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-1'>&#955;</a>
-    </div>
-<p>This is XMonad's primary configuration file and the entry point to all further user-specific XMonad configuration.</p>
+<div id="background"></div>
+<div id='container'>
+  <div class='section'>
+    <div class='docs'><h1>xmonad.hs</h1></div>
+  </div>
+  <div class='clearall'>
+  <div class='section' id='section-0'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-0'>#</a>
+      </div>
+      <p>This is XMonad's primary configuration file and the entry point to all
+further user-specific XMonad configuration.</p>
 <p>This file has been tested on <a href="http://www.archlinux.org">Arch Linux</a> and XMonad 0.10.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre></pre></div>
-  </td>
-</tr>
-<tr id='section-2'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-2'>&#955;</a>
     </div>
-<h1 id="imports">IMPORTS</h1>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre></pre></div>
-  </td>
-</tr>
-<tr id='section-3'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-3'>&#955;</a>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
     </div>
-<p>These first imports are language imports and do not impart specific functionality for this configuration.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre><span class="kr">import</span> <span class="nn">Control.Monad</span> <span class="p">(</span><span class="nf">liftM</span><span class="p">)</span>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-1'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-1'>#</a>
+      </div>
+      <h1>IMPORTS</h1>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-2'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-2'>#</a>
+      </div>
+      <p>These first imports are language imports and do not impart specific
+functionality for this configuration.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="kr">import</span> <span class="nn">Control.Monad</span> <span class="p">(</span><span class="nf">liftM</span><span class="p">)</span>
 <span class="kr">import</span> <span class="nn">System.IO</span>
 <span class="kr">import</span> <span class="nn">Graphics.X11.Xlib</span>
 <span class="kr">import</span> <span class="nn">System.Exit</span>
 <span class="kr">import</span> <span class="k">qualified</span> <span class="nn">Data.Map</span> <span class="k">as</span> <span class="n">M</span>
 <span class="kr">import</span> <span class="k">qualified</span> <span class="nn">XMonad.StackSet</span> <span class="k">as</span> <span class="n">W</span>
 <span class="kr">import</span> <span class="nn">XMonad</span>
-<span class="kr">import</span> <span class="nn">XMonad.Core</span>
- </pre></div>
-  </td>
-</tr>
-<tr id='section-4'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-4'>&#955;</a>
+<span class="kr">import</span> <span class="nn">XMonad.Core</span></pre></div>
     </div>
-<p>The XMonad prompt is the program launcher I use in XMonad. It is like <a href="http://tools.suckless.org/dmenu/">dmenu</a> but contains more features and is mnore easily themeable.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre><span class="kr">import</span> <span class="nn">XMonad.Prompt</span>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-3'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-3'>#</a>
+      </div>
+      <p>The XMonad prompt is the program launcher I use in XMonad. It is like
+<a href="http://tools.suckless.org/dmenu/">dmenu</a> but contains more features and is mnore easily themeable.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="kr">import</span> <span class="nn">XMonad.Prompt</span>
 <span class="kr">import</span> <span class="nn">XMonad.Prompt.Shell</span>
 <span class="kr">import</span> <span class="nn">XMonad.Prompt.Man</span></pre></div>
-  </td>
-</tr>
-<tr id='section-5'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-5'>&#955;</a>
     </div>
-<p>I use the EZConfig XMonad configuration generator as I find the syntax more manageable and intuitive. With some modifications, this configuration can be used with the standard configuration process too.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre><span class="kr">import</span> <span class="nn">XMonad.Util.EZConfig</span></pre></div>
-  </td>
-</tr>
-<tr id='section-6'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-6'>&#955;</a>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-4'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-4'>#</a>
+      </div>
+      <p>I use the EZConfig XMonad configuration generator as I find the syntax more
+manageable and intuitive. With some modifications, this configuration can be
+used with the standard configuration process too.</p>
     </div>
-<p>Run allows this configuration script to launch external applications. This is used to launch programs via keybinding, to start some processes I like to have running during my X session, and to process mouse clicks on the workspace names in the top left bar.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre><span class="kr">import</span> <span class="nn">XMonad.Util.Run</span></pre></div>
-  </td>
-</tr>
-<tr id='section-7'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-7'>&#955;</a>
+    <div class='code'>
+      <div class="highlight"><pre><span class="kr">import</span> <span class="nn">XMonad.Util.EZConfig</span></pre></div>
     </div>
-<p>These are the included layouts that can be employed later in the configuration. Any layouts you may want to include need to be added here.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre></pre></div>
-  </td>
-</tr>
-<tr id='section-8'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-8'>&#955;</a>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-5'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-5'>#</a>
+      </div>
+      <p>Run allows this configuration script to launch external applications. This
+is used to launch programs via keybinding, to start some processes I like to
+have running during my X session, and to process mouse clicks on the
+workspace names in the top left bar.</p>
     </div>
-<p><strong>TODO:</strong> remove or comment out unused layouts</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre></pre></div>
-  </td>
-</tr>
-<tr id='section-9'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-9'>&#955;</a>
+    <div class='code'>
+      <div class="highlight"><pre><span class="kr">import</span> <span class="nn">XMonad.Util.Run</span></pre></div>
     </div>
-<p><strong>TODO:</strong> document all layouts</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre>
-<span class="kr">import</span> <span class="nn">XMonad.Layout</span>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-6'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-6'>#</a>
+      </div>
+      <p>These are the included layouts that can be employed later in the
+configuration. Any layouts you may want to include need to be added here.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-7'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-7'>#</a>
+      </div>
+      <p><strong>TODO:</strong> remove or comment out unused layouts</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-8'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-8'>#</a>
+      </div>
+      <p><strong>TODO:</strong> document all layouts</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="kr">import</span> <span class="nn">XMonad.Layout</span>
 <span class="kr">import</span> <span class="nn">XMonad.Layout.Spacing</span>
 <span class="kr">import</span> <span class="nn">XMonad.Layout.Tabbed</span>
 <span class="kr">import</span> <span class="nn">XMonad.Layout.ResizableTile</span> 
@@ -140,378 +146,452 @@
 <span class="kr">import</span> <span class="nn">XMonad.Layout.DwmStyle</span>
 <span class="kr">import</span> <span class="k">qualified</span> <span class="nn">XMonad.Layout.Magnifier</span> <span class="k">as</span> <span class="n">Mag</span>
 <span class="kr">import</span> <span class="nn">XMonad.Layout.Gaps</span></pre></div>
-  </td>
-</tr>
-<tr id='section-10'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-10'>&#955;</a>
     </div>
-<p>These are the included actions that can be employed later in the configuration.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre><span class="kr">import</span> <span class="nn">XMonad.Actions.CycleWS</span>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-9'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-9'>#</a>
+      </div>
+      <p>These are the included actions that can be employed later in the
+configuration.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="kr">import</span> <span class="nn">XMonad.Actions.CycleWS</span>
 <span class="kr">import</span> <span class="nn">XMonad.Actions.DwmPromote</span>
 <span class="kr">import</span> <span class="nn">XMonad.Actions.UpdatePointer</span>
 <span class="kr">import</span> <span class="nn">XMonad.Actions.GridSelect</span>
 <span class="kr">import</span> <span class="nn">XMonad.Prompt.Window</span></pre></div>
-  </td>
-</tr>
-<tr id='section-11'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-11'>&#955;</a>
     </div>
-<p>These are the included hooks that can be employed later in the configuration.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre><span class="kr">import</span> <span class="nn">XMonad.Hooks.DynamicLog</span>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-10'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-10'>#</a>
+      </div>
+      <p>These are the included hooks that can be employed later in the
+configuration.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="kr">import</span> <span class="nn">XMonad.Hooks.DynamicLog</span>
 <span class="kr">import</span> <span class="nn">XMonad.Hooks.ManageDocks</span>
 <span class="kr">import</span> <span class="nn">XMonad.Hooks.UrgencyHook</span>
 <span class="kr">import</span> <span class="nn">XMonad.Hooks.SetWMName</span></pre></div>
-  </td>
-</tr>
-<tr id='section-12'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-12'>&#955;</a>
     </div>
-<h1 id="user-specific-variables">USER-SPECIFIC VARIABLES</h1>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre></pre></div>
-  </td>
-</tr>
-<tr id='section-13'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-13'>&#955;</a>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-11'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-11'>#</a>
+      </div>
+      <h1>USER-SPECIFIC VARIABLES</h1>
     </div>
-<p>You must configure the values below to match your environment prior to using this configuration. Without it, this Xmonad configuration will NOT work as expected. Calculations like toolbar widths and positions are made based on these. This config has only been tested on 1680x1050 and 1366x768, but should work just fine on all reasonably-sized resolutions. Smaller resolutions may need to get rid of some desktops or conky tools to avoid overflow.</p>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-12'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-12'>#</a>
+      </div>
+      <p>You must configure the values below to match your environment prior to using
+this configuration. Without it, this Xmonad configuration will NOT work as
+expected. Calculations like toolbar widths and positions are made based on
+these.  This config has only been tested on 1680x1050 and 1366x768, but
+should work just fine on all reasonably-sized resolutions. Smaller
+resolutions may need to get rid of some desktops or conky tools to avoid
+overflow.</p>
 <p><strong>TODO:</strong> Use X11 libraries to generate these based on your screen resolution.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre><span class="nf">userScreenWidth</span>  <span class="ow">=</span> <span class="s">&quot;1366&quot;</span>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nf">userScreenWidth</span>  <span class="ow">=</span> <span class="s">&quot;1366&quot;</span>
 <span class="nf">userScreenHeight</span> <span class="ow">=</span> <span class="s">&quot;768&quot;</span></pre></div>
-  </td>
-</tr>
-<tr id='section-14'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-14'>&#955;</a>
     </div>
-<p>This is the username of the person employing this configuration.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre><span class="nf">username</span> <span class="ow">=</span> <span class="s">&quot;joshua&quot;</span></pre></div>
-  </td>
-</tr>
-<tr id='section-15'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-15'>&#955;</a>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-13'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-13'>#</a>
+      </div>
+      <p>This is the username of the person employing this configuration.</p>
     </div>
-<p>This is the sound control to pass to amixer when changing volume. This can be Front Master, Master, and others depending on your sound card. Use alsamixer to find which one you should use.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre><span class="nf">userAmixerControl</span> <span class="ow">=</span> <span class="s">&quot;Front Master&quot;</span></pre></div>
-  </td>
-</tr>
-<tr id='section-16'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-16'>&#955;</a>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nf">username</span> <span class="ow">=</span> <span class="s">&quot;joshua&quot;</span></pre></div>
     </div>
-<p>The command used to lock the screen, e.g. gnome-screensaver, xscreensaver, slock, etc.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre><span class="nf">userScreenlockCommand</span> <span class="ow">=</span> <span class="s">&quot;/usr/bin/xscreensaver-command -lock&quot;</span></pre></div>
-  </td>
-</tr>
-<tr id='section-17'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-17'>&#955;</a>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-14'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-14'>#</a>
+      </div>
+      <p>This is the sound control to pass to amixer when changing volume. This can
+be Front Master, Master, and others depending on your sound card. Use
+alsamixer to find which one you should use.</p>
     </div>
-<p>This variable holds the user's preferred terminal, e.g. gnome-terminal, urxvt, xterm, lxterm, lilyterm, konsole, etc.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre><span class="nf">userTerminalCommand</span> <span class="ow">=</span> <span class="s">&quot;urxvtc&quot;</span></pre></div>
-  </td>
-</tr>
-<tr id='section-18'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-18'>&#955;</a>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nf">userAmixerControl</span> <span class="ow">=</span> <span class="s">&quot;Front Master&quot;</span></pre></div>
     </div>
-<p>The location of the image files. You need not set this if you downloaded the package I provided and you do not have custom home folder. Just the same, check it anyway.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre><span class="nf">userImagePath</span> <span class="ow">=</span> <span class="s">&quot;/home/&quot;</span> <span class="o">++</span> <span class="n">username</span> <span class="o">++</span> <span class="s">&quot;/.xmonad/icons/&quot;</span></pre></div>
-  </td>
-</tr>
-<tr id='section-19'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-19'>&#955;</a>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-15'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-15'>#</a>
+      </div>
+      <p>The command used to lock the screen, e.g. gnome-screensaver, xscreensaver,
+slock, etc.</p>
     </div>
-<p>The modifier mask This is the key represented by &quot;M&quot; in the keybindings. mod4 is typically the logo key and is my strong recommendation.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre><span class="nf">userModMask</span> <span class="ow">=</span> <span class="n">mod4Mask</span></pre></div>
-  </td>
-</tr>
-<tr id='section-20'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-20'>&#955;</a>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nf">userScreenlockCommand</span> <span class="ow">=</span> <span class="s">&quot;/usr/bin/xscreensaver-command -lock&quot;</span></pre></div>
     </div>
-<p>This is the command used to launche the screensaver daemon If you use a screensaver as your lock, it needs to be running for the screen locker specified above to work.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre><span class="nf">userScreensaverDaemonCommand</span> <span class="ow">=</span> <span class="s">&quot;xscreensaver -no-splash&quot;</span></pre></div>
-  </td>
-</tr>
-<tr id='section-21'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-21'>&#955;</a>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-16'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-16'>#</a>
+      </div>
+      <p>This variable holds the user's preferred terminal, e.g. gnome-terminal,
+urxvt, xterm, lxterm, lilyterm, konsole, etc.</p>
     </div>
-<p>This is the command used to restore the wallpaper on XMonad start. I use <a href="http://projects.l3ib.org/nitrogen/">nitrogen</a>.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre><span class="nf">userWallpaperCommand</span> <span class="ow">=</span> <span class="s">&quot;nitrogen --restore&quot;</span></pre></div>
-  </td>
-</tr>
-<tr id='section-22'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-22'>&#955;</a>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nf">userTerminalCommand</span> <span class="ow">=</span> <span class="s">&quot;urxvtc&quot;</span></pre></div>
     </div>
-<h1 id="custom-functions">CUSTOM FUNCTIONS</h1>
-<p>These are functions I added (or, more probably stole from sample configurations) to achieve some advanced functionality.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre></pre></div>
-  </td>
-</tr>
-<tr id='section-23'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-23'>&#955;</a>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-17'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-17'>#</a>
+      </div>
+      <p>The location of the image files. You need not set this if you downloaded
+the package I provided and you do not have custom home folder. Just the
+same, check it anyway.</p>
     </div>
-<p>This function determines if a window is currently visible.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre><span class="nf">isVisible</span> <span class="ow">::</span> <span class="kt">X</span> <span class="p">(</span><span class="kt">WindowSpace</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span><span class="p">)</span>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nf">userImagePath</span> <span class="ow">=</span> <span class="s">&quot;/home/&quot;</span> <span class="o">++</span> <span class="n">username</span> <span class="o">++</span> <span class="s">&quot;/.xmonad/icons/&quot;</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-18'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-18'>#</a>
+      </div>
+      <p>The modifier mask
+This is the key represented by "M" in the keybindings. mod4 is typically
+the logo key and is my strong recommendation.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nf">userModMask</span> <span class="ow">=</span> <span class="n">mod4Mask</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-19'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-19'>#</a>
+      </div>
+      <p>This is the command used to launche the screensaver daemon If you use a
+screensaver as your lock, it needs to be running for the screen locker
+specified above to work.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nf">userScreensaverDaemonCommand</span> <span class="ow">=</span> <span class="s">&quot;xscreensaver -no-splash&quot;</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-20'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-20'>#</a>
+      </div>
+      <p>This is the command used to restore the wallpaper on XMonad start. I use
+<a href="http://projects.l3ib.org/nitrogen/">nitrogen</a>.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nf">userWallpaperCommand</span> <span class="ow">=</span> <span class="s">&quot;nitrogen --restore&quot;</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-21'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-21'>#</a>
+      </div>
+      <h1>CUSTOM FUNCTIONS</h1>
+<p>These are functions I added (or, more probably stole from sample
+configurations) to achieve some advanced functionality.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-22'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-22'>#</a>
+      </div>
+      <p>This function determines if a window is currently visible.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nf">isVisible</span> <span class="ow">::</span> <span class="kt">X</span> <span class="p">(</span><span class="kt">WindowSpace</span> <span class="ow">-&gt;</span> <span class="kt">Bool</span><span class="p">)</span>
 <span class="nf">isVisible</span> <span class="ow">=</span> <span class="kr">do</span>
   <span class="n">vs</span> <span class="ow">&lt;-</span> <span class="n">gets</span> <span class="p">(</span><span class="n">map</span> <span class="p">(</span><span class="kt">W</span><span class="o">.</span><span class="n">tag</span> <span class="o">.</span> <span class="kt">W</span><span class="o">.</span><span class="n">workspace</span><span class="p">)</span> <span class="o">.</span> <span class="kt">W</span><span class="o">.</span><span class="n">visible</span> <span class="o">.</span> <span class="n">windowset</span><span class="p">)</span>
   <span class="n">return</span> <span class="p">(</span><span class="nf">\</span><span class="n">w</span> <span class="ow">-&gt;</span> <span class="p">(</span><span class="kt">W</span><span class="o">.</span><span class="n">tag</span> <span class="n">w</span><span class="p">)</span> <span class="p">`</span><span class="n">elem</span><span class="p">`</span> <span class="n">vs</span><span class="p">)</span></pre></div>
-  </td>
-</tr>
-<tr id='section-24'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-24'>&#955;</a>
     </div>
-<h1 id="appearance">APPEARANCE</h1>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre></pre></div>
-  </td>
-</tr>
-<tr id='section-25'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-25'>&#955;</a>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-23'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-23'>#</a>
+      </div>
+      <h1>APPEARANCE</h1>
     </div>
-<p>These are the visual settings - the &quot;theme&quot;, if you will. Change these to suit your preference. The default theme is in dark grays.</p>
-<p>Background is not set by Xmonad and is therefore not listed here; if you have a wallpaper restoring function specified above (e.g. nitrogen), that application should have some mechanism for setting the wallpaper. Otherwise, there are X11-specific commands that can be used more generically.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre></pre></div>
-  </td>
-</tr>
-<tr id='section-26'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-26'>&#955;</a>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
     </div>
-<p>This is an Xorg font string. You can pick one using the graphical xfontsel tool. Make sure the font is installed or there will be errors and your XMonad will not look right.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre><span class="nf">userFont</span> <span class="ow">=</span> <span class="s">&quot;-*-clean-*-*-*-*-12-*-*-*-*-*-iso8859-*&quot;</span></pre></div>
-  </td>
-</tr>
-<tr id='section-27'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-27'>&#955;</a>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-24'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-24'>#</a>
+      </div>
+      <p>These are the visual settings - the "theme", if you will. Change these
+to suit your preference. The default theme is in dark grays. </p>
+<p>Background is not set by Xmonad and is therefore not listed here; if you
+have a wallpaper restoring function specified above (e.g. nitrogen), that
+application should have some mechanism for setting the wallpaper. Otherwise,
+there are X11-specific commands that can be used more generically.</p>
     </div>
-<p>This is the height used for all the dzen bars and the Prompt.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre><span class="nf">userBarHeight</span> <span class="ow">=</span> <span class="s">&quot;16&quot;</span></pre></div>
-  </td>
-</tr>
-<tr id='section-28'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-28'>&#955;</a>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
     </div>
-<p>These are color definitions used throughout the configuration. Each has its own description.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre><span class="nf">myBgBgColor</span> <span class="ow">=</span> <span class="s">&quot;black&quot;</span>             <span class="c1">-- the screen bg color, assuming no wallpaper</span>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-25'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-25'>#</a>
+      </div>
+      <p>This is an Xorg font string. You can pick one using the graphical xfontsel
+tool. Make sure the font is installed or there will be errors and your
+XMonad will not look right.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nf">userFont</span> <span class="ow">=</span> <span class="s">&quot;-*-clean-*-*-*-*-12-*-*-*-*-*-iso8859-*&quot;</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-26'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-26'>#</a>
+      </div>
+      <p>This is the height used for all the dzen bars and the Prompt.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nf">userBarHeight</span> <span class="ow">=</span> <span class="s">&quot;16&quot;</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-27'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-27'>#</a>
+      </div>
+      <p>These are color definitions used throughout the configuration. Each has its
+own description.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nf">myBgBgColor</span> <span class="ow">=</span> <span class="s">&quot;black&quot;</span>             <span class="c1">-- the screen bg color, assuming no wallpaper</span>
 <span class="nf">myFgColor</span> <span class="ow">=</span> <span class="s">&quot;gray80&quot;</span>              <span class="c1">-- the color for the top &amp; bottom bar fonts, by default</span>
 <span class="nf">myBgColor</span> <span class="ow">=</span> <span class="s">&quot;gray20&quot;</span>              <span class="c1">-- the color of the top &amp; bottom bars</span>
 <span class="nf">myActiveBorderColor</span> <span class="ow">=</span> <span class="s">&quot;green&quot;</span>     <span class="c1">-- the border color of the currently-active window</span>
 <span class="nf">myInactiveBorderColor</span> <span class="ow">=</span> <span class="s">&quot;gray20&quot;</span>  <span class="c1">-- the border color of all inactive windows</span>
 <span class="nf">myTitleFgColor</span> <span class="ow">=</span> <span class="s">&quot;white&quot;</span>          <span class="c1">-- the text color of the title of the current window</span></pre></div>
-  </td>
-</tr>
-<tr id='section-29'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-29'>&#955;</a>
     </div>
-<p>These are colors used for the XMonad Prompt (i.e. the launcher).</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre><span class="nf">myHighlightedFgColor</span> <span class="ow">=</span> <span class="s">&quot;white&quot;</span>    <span class="c1">-- the color of selected text</span>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-28'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-28'>#</a>
+      </div>
+      <p>These are colors used for the XMonad Prompt (i.e. the launcher).</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nf">myHighlightedFgColor</span> <span class="ow">=</span> <span class="s">&quot;white&quot;</span>    <span class="c1">-- the color of selected text</span>
 <span class="nf">myHighlightedBgColor</span> <span class="ow">=</span> <span class="s">&quot;gray40&quot;</span>   <span class="c1">-- the background color of selected text</span></pre></div>
-  </td>
-</tr>
-<tr id='section-30'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-30'>&#955;</a>
     </div>
-<p>These are the colors used for the currently-selected workspace labels.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre><span class="nf">myCurrentWsFgColor</span> <span class="ow">=</span> <span class="s">&quot;white&quot;</span>      <span class="c1">-- the text color of the current workspace label</span>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-29'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-29'>#</a>
+      </div>
+      <p>These are the colors used for the currently-selected workspace labels.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nf">myCurrentWsFgColor</span> <span class="ow">=</span> <span class="s">&quot;white&quot;</span>      <span class="c1">-- the text color of the current workspace label</span>
 <span class="nf">myCurrentWsBgColor</span> <span class="ow">=</span> <span class="s">&quot;gray40&quot;</span>     <span class="c1">-- the bakcground color of the current workspace label</span></pre></div>
-  </td>
-</tr>
-<tr id='section-31'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-31'>&#955;</a>
     </div>
-<p>These are the colors for the workspace label of visible but not focued (e.g. Xinerama) workspaces.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre><span class="nf">myVisibleWsFgColor</span> <span class="ow">=</span> <span class="s">&quot;gray80&quot;</span>     <span class="c1">-- the text color of visible workspaces&#39; labels</span>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-30'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-30'>#</a>
+      </div>
+      <p>These are the colors for the workspace label of visible but not focued (e.g.
+Xinerama) workspaces.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nf">myVisibleWsFgColor</span> <span class="ow">=</span> <span class="s">&quot;gray80&quot;</span>     <span class="c1">-- the text color of visible workspaces&#39; labels</span>
 <span class="nf">myVisibleWsBgColor</span> <span class="ow">=</span> <span class="s">&quot;gray20&quot;</span>     <span class="c1">-- the background color visible workspaces&#39; labels</span></pre></div>
-  </td>
-</tr>
-<tr id='section-32'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-32'>&#955;</a>
     </div>
-<p>These are the colors for workspace labels that are not selected right now but have windows.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre><span class="nf">myHiddenWsFgColor</span> <span class="ow">=</span> <span class="s">&quot;gray80&quot;</span>      <span class="c1">-- the text color</span></pre></div>
-  </td>
-</tr>
-<tr id='section-33'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-33'>&#955;</a>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-31'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-31'>#</a>
+      </div>
+      <p>These are the colors for workspace labels that are not selected right now
+but have windows.</p>
     </div>
-<p>These are the colors for the workspace labels that are not selected right now and do not have windows.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre><span class="nf">myHiddenEmptyWsFgColor</span> <span class="ow">=</span> <span class="s">&quot;gray50&quot;</span> <span class="c1">-- the text color</span></pre></div>
-  </td>
-</tr>
-<tr id='section-34'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-34'>&#955;</a>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nf">myHiddenWsFgColor</span> <span class="ow">=</span> <span class="s">&quot;gray80&quot;</span>      <span class="c1">-- the text color</span></pre></div>
     </div>
-<p>These are the colors for the workspace labels needing attention.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre><span class="nf">myUrgencyHintFgColor</span> <span class="ow">=</span> <span class="s">&quot;white&quot;</span>    <span class="c1">-- the text color</span>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-32'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-32'>#</a>
+      </div>
+      <p>These are the colors for the workspace labels that are not selected right
+now and do not have windows.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nf">myHiddenEmptyWsFgColor</span> <span class="ow">=</span> <span class="s">&quot;gray50&quot;</span> <span class="c1">-- the text color</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-33'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-33'>#</a>
+      </div>
+      <p>These are the colors for the workspace labels needing attention.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nf">myUrgencyHintFgColor</span> <span class="ow">=</span> <span class="s">&quot;white&quot;</span>    <span class="c1">-- the text color</span>
 <span class="nf">myUrgencyHintBgColor</span> <span class="ow">=</span> <span class="s">&quot;red&quot;</span>    <span class="c1">-- the background color</span></pre></div>
-  </td>
-</tr>
-<tr id='section-35'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-35'>&#955;</a>
     </div>
-<h1 id="top-bottom-bars">TOP &amp; BOTTOM BARS</h1>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre></pre></div>
-  </td>
-</tr>
-<tr id='section-36'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-36'>&#955;</a>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-34'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-34'>#</a>
+      </div>
+      <h1>TOP &amp; BOTTOM BARS</h1>
     </div>
-<p>In order to mange workspaces and layouts visually, XMonad can pipe information to other applications. For my configuration, I use <a href="https://sites.google.com/site/gotmor/dzen">dzen2</a> to draw the top and bottom bars. In addition to piping XMonad information like workspaces to dzen, I use <a href="http://conky.sourceforge.net/">conky</a> to pipe system information to a dzen bar. This configuration contains three dzen bars:</p>
-<ol style="list-style-type: decimal">
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-35'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-35'>#</a>
+      </div>
+      <p>In order to mange workspaces and layouts visually, XMonad can pipe information
+to other applications. For my configuration, I use <a href="https://sites.google.com/site/gotmor/dzen">dzen2</a> to draw the
+top and bottom bars. In addition to piping XMonad information like
+workspaces to dzen, I use <a href="http://conky.sourceforge.net/">conky</a> to pipe system information to a
+dzen bar. This configuration contains three dzen bars:</p>
+<ol>
 <li>The top-right - conky pipes system stats to dzen2</li>
 <li>The top-left - xmonad pipes workspace/layout/window information to dzen2</li>
 <li>The bottom - conky pipes MPD information to dzen2.</li>
 </ol>
-<p>This section also contains configuration information for a program launcher called Prompt that is part of XMonad.</p>
-<p>For the two dzen2 bars that get their information from conky, please see the files in the <code>bin</code> directory of my package: conky_bar for the top right and conky_bar_bottom for the bottom left. These two files contain the configuration for the conky output that is piped to dzen in the top-right, bottom-right, and bottom-left.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre></pre></div>
-  </td>
-</tr>
-<tr id='section-37'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-37'>&#955;</a>
+<p>This section also contains configuration information for a program launcher
+called Prompt that is part of XMonad.</p>
+<p>For the two dzen2 bars that get their information from conky, please see the files
+in the <code>bin</code> directory of my package: conky_bar for the top right and conky_bar_bottom
+for the bottom left. These two files contain the configuration for the conky
+output that is piped to dzen in the top-right, bottom-right, and
+bottom-left.</p>
     </div>
-<h2 id="general-dzen-options">General Dzen Options</h2>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre></pre></div>
-  </td>
-</tr>
-<tr id='section-38'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-38'>&#955;</a>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
     </div>
-<p>First, the following options are passed to all instances of dzen we launch here. They define the basic colors used as well as the height, which we want to remain consistent to ensure the bars look like a top and bottom bar instead of four separate bars.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre><span class="nf">myDzenGenOpts</span>    <span class="ow">=</span> <span class="s">&quot;-fg &#39;&quot;</span> <span class="o">++</span> <span class="n">myFgColor</span> <span class="o">++</span> <span class="s">&quot;&#39; -bg &#39;&quot;</span> <span class="o">++</span> <span class="n">myBgColor</span> <span class="o">++</span> <span class="s">&quot;&#39; -fn &#39;&quot;</span> <span class="o">++</span> <span class="n">userFont</span> <span class="o">++</span> <span class="s">&quot;&#39; -h &#39;&quot;</span> <span class="o">++</span> <span class="n">userBarHeight</span> <span class="o">++</span> <span class="s">&quot;&#39;&quot;</span>
- </pre></div>
-  </td>
-</tr>
-<tr id='section-39'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-39'>&#955;</a>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-36'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-36'>#</a>
+      </div>
+      <h2>General Dzen Options</h2>
     </div>
-<h2 id="prompt-the-program-launcher">Prompt (the program launcher)</h2>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre></pre></div>
-  </td>
-</tr>
-<tr id='section-40'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-40'>&#955;</a>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
     </div>
-<p>These settings simply position the launcher at the bottom of the screen and set its height and colors. As configured, this will appear at the bottom of the screen when the keybinding M-p is entered. See the keybindings section.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre><span class="nf">myXPConfig</span> <span class="ow">=</span> <span class="n">defaultXPConfig</span> <span class="p">{</span>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-37'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-37'>#</a>
+      </div>
+      <p>First, the following options are passed to all instances of dzen we launch
+here. They define the basic colors used as well as the height, which we want
+to remain consistent to ensure the bars look like a top and bottom bar
+instead of four separate bars.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nf">myDzenGenOpts</span>    <span class="ow">=</span> <span class="s">&quot;-fg &#39;&quot;</span> <span class="o">++</span> <span class="n">myFgColor</span> <span class="o">++</span> <span class="s">&quot;&#39; -bg &#39;&quot;</span> <span class="o">++</span> <span class="n">myBgColor</span> <span class="o">++</span> <span class="s">&quot;&#39; -fn &#39;&quot;</span> <span class="o">++</span> <span class="n">userFont</span> <span class="o">++</span> <span class="s">&quot;&#39; -h &#39;&quot;</span> <span class="o">++</span> <span class="n">userBarHeight</span> <span class="o">++</span> <span class="s">&quot;&#39;&quot;</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-38'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-38'>#</a>
+      </div>
+      <h2>Prompt (the program launcher)</h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-39'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-39'>#</a>
+      </div>
+      <p>These settings simply position the launcher at the bottom of the screen and
+set its height and colors. As configured, this will appear at the bottom of
+the screen when the keybinding M-p is entered. See the keybindings section.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nf">myXPConfig</span> <span class="ow">=</span> <span class="n">defaultXPConfig</span> <span class="p">{</span>
   <span class="n">position</span> <span class="ow">=</span> <span class="kt">Bottom</span><span class="p">,</span>
   <span class="n">promptBorderWidth</span> <span class="ow">=</span> <span class="mi">0</span><span class="p">,</span>
   <span class="n">height</span> <span class="ow">=</span> <span class="n">read</span> <span class="n">userBarHeight</span><span class="p">,</span>
@@ -520,29 +600,41 @@
   <span class="n">fgHLight</span> <span class="ow">=</span> <span class="n">myHighlightedFgColor</span><span class="p">,</span>
   <span class="n">bgHLight</span> <span class="ow">=</span> <span class="n">myHighlightedBgColor</span>
   <span class="p">}</span></pre></div>
-  </td>
-</tr>
-<tr id='section-41'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-41'>&#955;</a>
     </div>
-<h2 id="workspace-info-bar-top-left">Workspace Info Bar (Top Left)</h2>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre></pre></div>
-  </td>
-</tr>
-<tr id='section-42'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-42'>&#955;</a>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-40'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-40'>#</a>
+      </div>
+      <h2>Workspace Info Bar (Top Left)</h2>
     </div>
-<p>This is the configuration for the dzen bar that appears in the top left that shows workspaces, the icon representing the current layout, and the active window's title. This configuration looks different than the dzen configurations to follow because this information is passed to dzen2 by xmonad functions whereas we will instruct XMonad to spawn dzen2 ourselves for the other two bars.</p>
-<p>Each of the properties below specifies some part of the rendering. ppCurrent, ppHidden/ppHiddenNoWindows, and ppVisible define functions for generating the layout of current, hidden, and visible workspaces. ppUrgent defines the layout for workspaces where a window has broadcast an urgent message requiring attention. ppTitle defines a function for outputting the title of the current window. ppSep is the separater used between workspaces, the layout, and the window title.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre><span class="nf">myDzenPP</span> <span class="n">h</span> <span class="ow">=</span> <span class="n">defaultPP</span> <span class="p">{</span>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-41'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-41'>#</a>
+      </div>
+      <p>This is the configuration for the dzen bar that appears in the top left that shows workspaces, the
+icon representing the current layout, and the active window's title. This
+configuration looks different than the dzen configurations to follow because
+this information is passed to dzen2 by xmonad functions whereas we will
+instruct XMonad to spawn dzen2 ourselves for the other two bars.</p>
+<p>Each of the properties below specifies some part of the rendering.
+ppCurrent, ppHidden/ppHiddenNoWindows, and ppVisible define functions for
+generating the layout of current, hidden, and visible workspaces. ppUrgent
+defines the layout for workspaces where a window has broadcast an urgent
+message requiring attention. ppTitle defines a function for outputting the
+title of the current window. ppSep is the separater used between workspaces,
+the layout, and the window title.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nf">myDzenPP</span> <span class="n">h</span> <span class="ow">=</span> <span class="n">defaultPP</span> <span class="p">{</span>
   <span class="n">ppOutput</span> <span class="ow">=</span> <span class="n">hPutStrLn</span> <span class="n">h</span><span class="p">,</span>
   <span class="n">ppSep</span> <span class="ow">=</span> <span class="s">&quot;^bg(&quot;</span> <span class="o">++</span> <span class="n">myBgBgColor</span> <span class="o">++</span> <span class="s">&quot;)^r(1,&quot;</span><span class="o">++</span> <span class="n">show</span><span class="p">(</span><span class="n">read</span><span class="p">(</span><span class="n">userBarHeight</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">++</span><span class="s">&quot;)^bg()&quot;</span><span class="p">,</span>
   <span class="n">ppWsSep</span> <span class="ow">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
@@ -552,17 +644,22 @@
   <span class="n">ppHiddenNoWindows</span> <span class="ow">=</span> <span class="n">wrapFg</span> <span class="n">myHiddenEmptyWsFgColor</span><span class="p">,</span>
   <span class="n">ppUrgent</span> <span class="ow">=</span> <span class="n">wrapBg</span> <span class="n">myUrgencyHintBgColor</span><span class="p">,</span>
   <span class="n">ppTitle</span> <span class="ow">=</span> <span class="p">(</span><span class="nf">\</span><span class="n">x</span> <span class="ow">-&gt;</span> <span class="s">&quot; &quot;</span> <span class="o">++</span> <span class="n">wrapFg</span> <span class="n">myTitleFgColor</span> <span class="n">x</span><span class="p">),</span></pre></div>
-  </td>
-</tr>
-<tr id='section-43'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-43'>&#955;</a>
     </div>
-<p>ppLayout defines a function for outputting layout names. The method simply translates the name of a layout into a friendly icon that is drawn between the workspace list and the window title. These will need to be changed if you add or remove layouts or no icon will appear.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre>  <span class="n">ppLayout</span>  <span class="ow">=</span> <span class="n">dzenColor</span> <span class="n">myFgColor</span><span class="s">&quot;&quot;</span> <span class="o">.</span>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-42'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-42'>#</a>
+      </div>
+      <p>ppLayout defines a function for outputting layout names. The method simply
+translates the name of a layout into a friendly icon that is drawn between
+the workspace list and the window title. These will need to be changed if
+you add or remove layouts or no icon will appear.<br />
+</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>  <span class="n">ppLayout</span>  <span class="ow">=</span> <span class="n">dzenColor</span> <span class="n">myFgColor</span><span class="s">&quot;&quot;</span> <span class="o">.</span>
                 <span class="p">(</span><span class="nf">\</span><span class="n">x</span> <span class="ow">-&gt;</span> <span class="kr">case</span> <span class="n">x</span> <span class="kr">of</span> 
                     <span class="s">&quot;ResizableTall&quot;</span> <span class="ow">-&gt;</span> <span class="n">wrapBitmap</span> <span class="s">&quot;/tall.xbm&quot;</span>
                     <span class="s">&quot;Mirror ResizableTall&quot;</span> <span class="ow">-&gt;</span> <span class="n">wrapBitmap</span> <span class="s">&quot;/mtall.xbm&quot;</span>
@@ -575,39 +672,44 @@
     <span class="n">wrapFg</span> <span class="n">color</span> <span class="n">content</span> <span class="ow">=</span> <span class="n">wrap</span> <span class="p">(</span><span class="s">&quot;^fg(&quot;</span> <span class="o">++</span> <span class="n">color</span> <span class="o">++</span> <span class="s">&quot;)&quot;</span><span class="p">)</span> <span class="s">&quot;^fg()&quot;</span> <span class="n">content</span>
     <span class="n">wrapBg</span> <span class="n">color</span> <span class="n">content</span> <span class="ow">=</span> <span class="n">wrap</span> <span class="p">(</span><span class="s">&quot;^bg(&quot;</span> <span class="o">++</span> <span class="n">color</span> <span class="o">++</span> <span class="s">&quot;)&quot;</span><span class="p">)</span> <span class="s">&quot;^bg()&quot;</span> <span class="n">content</span>
     <span class="n">wrapBitmap</span> <span class="n">bitmap</span> <span class="ow">=</span> <span class="s">&quot;^p(5)^i(&quot;</span> <span class="o">++</span> <span class="n">userImagePath</span> <span class="o">++</span> <span class="n">bitmap</span> <span class="o">++</span> <span class="s">&quot;)^p(5)&quot;</span></pre></div>
-  </td>
-</tr>
-<tr id='section-44'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-44'>&#955;</a>
     </div>
-<p>This is the dzen command used to load the workspaces list.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre><span class="nf">myStatusBar</span>      <span class="ow">=</span> <span class="s">&quot;dzen2 -w 800  -ta l &quot;</span> <span class="o">++</span> <span class="n">myDzenGenOpts</span></pre></div>
-  </td>
-</tr>
-<tr id='section-45'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-45'>&#955;</a>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-43'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-43'>#</a>
+      </div>
+      <p>This is the dzen command used to load the workspaces list.</p>
     </div>
-<h2 id="an-urgency-bar">An Urgency Bar</h2>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre></pre></div>
-  </td>
-</tr>
-<tr id='section-46'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-46'>&#955;</a>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nf">myStatusBar</span>      <span class="ow">=</span> <span class="s">&quot;dzen2 -w 800  -ta l &quot;</span> <span class="o">++</span> <span class="n">myDzenGenOpts</span></pre></div>
     </div>
-<p>The urgency bar is a dzen bar to be established when there is a window needing attention on a different workspace than the current one. Here, it is positioned at the bottom of the screen.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre><span class="nf">myUrgencyHook</span> <span class="ow">=</span> <span class="n">withUrgencyHook</span> <span class="n">dzenUrgencyHook</span>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-44'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-44'>#</a>
+      </div>
+      <h2>An Urgency Bar</h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-45'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-45'>#</a>
+      </div>
+      <p>The urgency bar is a dzen bar to be established when there is a window
+needing attention on a different workspace than the current one. Here, it is
+positioned at the bottom of the screen.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nf">myUrgencyHook</span> <span class="ow">=</span> <span class="n">withUrgencyHook</span> <span class="n">dzenUrgencyHook</span>
     <span class="p">{</span>
       <span class="n">args</span> <span class="ow">=</span> <span class="p">[</span>
          <span class="s">&quot;-x&quot;</span><span class="p">,</span> <span class="s">&quot;0&quot;</span><span class="p">,</span>
@@ -620,137 +722,165 @@
          <span class="s">&quot;-fn&quot;</span><span class="p">,</span> <span class="n">userFont</span>
          <span class="p">]</span>
     <span class="p">}</span></pre></div>
-  </td>
-</tr>
-<tr id='section-47'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-47'>&#955;</a>
     </div>
-<h2 id="the-top-right-bar">The Top Right Bar</h2>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre></pre></div>
-  </td>
-</tr>
-<tr id='section-48'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-48'>&#955;</a>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-46'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-46'>#</a>
+      </div>
+      <h2>The Top Right Bar</h2>
     </div>
-<p>This conky bar shows the current CPU load, RAM usage, core temperature, and battery percentage.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre><span class="nf">myConkyBar</span>       <span class="ow">=</span> <span class="s">&quot;conky -a mr -c ~/.xmonad/bin/conky_bar | dzen2 -x 800 -w 566 -ta r &quot;</span> <span class="o">++</span> <span class="n">myDzenGenOpts</span></pre></div>
-  </td>
-</tr>
-<tr id='section-49'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-49'>&#955;</a>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
     </div>
-<h2 id="the-bottom-right-bar">The Bottom Right Bar</h2>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre></pre></div>
-  </td>
-</tr>
-<tr id='section-50'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-50'>&#955;</a>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-47'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-47'>#</a>
+      </div>
+      <p>This conky bar shows the current CPU load, RAM usage, core temperature, and
+battery percentage.</p>
     </div>
-<p>This conky bar shows the current up and down network transfer rates, the currently-connected WIFI access point, the temperature outside, and the date and time.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre><span class="nf">myConkyBarBottomR</span> <span class="ow">=</span> <span class="s">&quot;conky -c ~/.xmonad/bin/conky_bar_bottom_right | dzen2 -y 752 -x 683 -w 683 -ta r &quot;</span> <span class="o">++</span> <span class="n">myDzenGenOpts</span></pre></div>
-  </td>
-</tr>
-<tr id='section-51'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-51'>&#955;</a>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nf">myConkyBar</span>       <span class="ow">=</span> <span class="s">&quot;conky -a mr -c ~/.xmonad/bin/conky_bar | dzen2 -x 800 -w 566 -ta r &quot;</span> <span class="o">++</span> <span class="n">myDzenGenOpts</span></pre></div>
     </div>
-<h2 id="the-bottom-left-bar">The Bottom Left Bar</h2>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre></pre></div>
-  </td>
-</tr>
-<tr id='section-52'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-52'>&#955;</a>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-48'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-48'>#</a>
+      </div>
+      <h2>The Bottom Right Bar</h2>
     </div>
-<p>This conky bar shows the volume, MPD status, and currently-playing track.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre><span class="nf">myConkyBarBottomL</span> <span class="ow">=</span> <span class="s">&quot;conky -c ~/.xmonad/bin/conky_bar_bottom_left | dzen2 -y 752 -x 0 -w 683 -ta l &quot;</span> <span class="o">++</span> <span class="n">myDzenGenOpts</span></pre></div>
-  </td>
-</tr>
-<tr id='section-53'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-53'>&#955;</a>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
     </div>
-<h1 id="layout-definitions">LAYOUT DEFINITIONS</h1>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-49'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-49'>#</a>
+      </div>
+      <p>This conky bar shows the current up and down network transfer rates, the
+currently-connected WIFI access point, the temperature outside, and the date
+and time.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nf">myConkyBarBottomR</span> <span class="ow">=</span> <span class="s">&quot;conky -c ~/.xmonad/bin/conky_bar_bottom_right | dzen2 -y 752 -x 683 -w 683 -ta r &quot;</span> <span class="o">++</span> <span class="n">myDzenGenOpts</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-50'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-50'>#</a>
+      </div>
+      <h2>The Bottom Left Bar</h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-51'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-51'>#</a>
+      </div>
+      <p>This conky bar shows the volume, MPD status, and currently-playing track.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nf">myConkyBarBottomL</span> <span class="ow">=</span> <span class="s">&quot;conky -c ~/.xmonad/bin/conky_bar_bottom_left | dzen2 -y 752 -x 0 -w 683 -ta l &quot;</span> <span class="o">++</span> <span class="n">myDzenGenOpts</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-52'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-52'>#</a>
+      </div>
+      <h1>LAYOUT DEFINITIONS</h1>
 <p>These properties apply to all layouts:</p>
 <ul>
 <li><em>avoidStruts</em>: Automatically allows spacing for visible docks and bars</li>
-<li><em>smartBorders</em>: Borders are not shown if there is only one window in the current workspace or if the window is floated and full-screen (e.g. mplayer).</li>
+<li><em>smartBorders</em>: Borders are not shown if there is only one window in the
+  current workspace or if the window is floated and full-screen (e.g. mplayer).</li>
 </ul>
 <p>The following layouts are used in this configuration:</p>
 <ul>
-<li><em>tiled</em>: Windows are tiled vertically, the &quot;master&quot; window in the left column and all other windows in the right column, stacked vertically.</li>
-<li><em>Mirror tiled</em>: Windows are tiled horizontally, the &quot;master&quot; window in the top row and all other windows in the bottom row, stacked horizontally.</li>
-<li><em>simpleTabbed</em>: Active window is full-screen, but there are tabs at the top to switch windows</li>
+<li><em>tiled</em>: Windows are tiled vertically, the "master" window in the left
+  column and all other windows in the right column, stacked vertically.</li>
+<li><em>Mirror tiled</em>: Windows are tiled horizontally, the "master" window in
+  the top row and all other windows in the bottom row, stacked horizontally.</li>
+<li><em>simpleTabbed</em>: Active window is full-screen, but there are tabs at the
+  top to switch windows</li>
 <li><em>Full</em>: Active window is full-screen</li>
 </ul>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre></pre></div>
-  </td>
-</tr>
-<tr id='section-54'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-54'>&#955;</a>
     </div>
-<p>myLayoutHook is the variable that holds the list of layouts currently employed in this configuration.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre><span class="nf">myLayoutHook</span> <span class="ow">=</span> <span class="n">avoidStruts</span> <span class="o">$</span> <span class="n">smartBorders</span> <span class="o">$</span> <span class="p">(</span> <span class="n">tiled</span> <span class="o">|||</span> <span class="kt">Mirror</span> <span class="n">tiled</span> <span class="o">|||</span> <span class="n">simpleTabbed</span> <span class="o">|||</span> <span class="kt">Full</span> <span class="p">)</span>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-53'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-53'>#</a>
+      </div>
+      <p>myLayoutHook is the variable that holds the list of layouts currently
+employed in this configuration.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nf">myLayoutHook</span> <span class="ow">=</span> <span class="n">avoidStruts</span> <span class="o">$</span> <span class="n">smartBorders</span> <span class="o">$</span> <span class="p">(</span> <span class="n">tiled</span> <span class="o">|||</span> <span class="kt">Mirror</span> <span class="n">tiled</span> <span class="o">|||</span> <span class="n">simpleTabbed</span> <span class="o">|||</span> <span class="kt">Full</span> <span class="p">)</span>
   <span class="kr">where</span>
     <span class="n">tiled</span> <span class="ow">=</span> <span class="kt">ResizableTall</span> <span class="n">nmaster</span> <span class="n">delta</span> <span class="n">ratio</span> <span class="kt">[]</span>
     <span class="n">nmaster</span> <span class="ow">=</span> <span class="mi">1</span>
     <span class="n">delta</span> <span class="ow">=</span> <span class="mi">3</span><span class="o">/</span><span class="mi">100</span>
     <span class="n">ratio</span> <span class="ow">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span></pre></div>
-  </td>
-</tr>
-<tr id='section-55'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-55'>&#955;</a>
     </div>
-<h1 id="workspaces">WORKSPACES</h1>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre></pre></div>
-  </td>
-</tr>
-<tr id='section-56'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-56'>&#955;</a>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-54'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-54'>#</a>
+      </div>
+      <h1>WORKSPACES</h1>
     </div>
-<p>These are the workspaces that will appear in the upper-left corner of the screen. The format is &quot;order name image&quot;, where order MUST match the order provided; this could have been accomplished with a loop, but was less aesthetically pleasing and less readable.</p>
-<p><a href="http://www.semicomplete.com/projects/xdotool/">Xdotool</a> is used to make these guys clickable; if it is not installed, they will not be clickable. On click, the Mod4 + the number of the workspace is triggered, If the mod key is changed, this will need to be changed too.</p>
-<p>Dzen2 runs the workspaces list and the clickable tag is relatively new, so you may need to build from source (e.g. the Arch package is not recent enough, so <a href="https://aur.archlinux.org/packages.php?ID=19926">dzen2-svn</a> from the AUR is required).</p>
-<p>The images are expected to be found in the userImagePath specified earlier in the file and MUST be absolute as $HOME and ~ will not work with dzen2. Boo.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre>
-<span class="nf">myWorkspaces</span> <span class="ow">=</span> <span class="p">[</span>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-55'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-55'>#</a>
+      </div>
+      <p>These are the workspaces that will appear in the upper-left corner of the
+screen. The format is "order name image", where order MUST match the order
+provided; this could have been accomplished with a loop, but was less
+aesthetically pleasing and less readable.</p>
+<p><a href="http://www.semicomplete.com/projects/xdotool/">Xdotool</a> is used to make
+these guys clickable; if it is not installed, they will not be clickable. On
+click, the Mod4 + the number of the workspace is triggered, If the mod key
+is changed, this will need to be changed too. </p>
+<p>Dzen2 runs the workspaces list and the clickable tag
+is relatively new, so you may need to build from source (e.g. the Arch package
+is not recent enough, so
+<a href="https://aur.archlinux.org/packages.php?ID=19926">dzen2-svn</a> from the AUR is
+required).</p>
+<p>The images are expected to be found in the userImagePath specified earlier in the
+file and MUST be absolute as $HOME and ~ will not work with dzen2. Boo.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nf">myWorkspaces</span> <span class="ow">=</span> <span class="p">[</span>
   <span class="n">supWsNum</span> <span class="s">&quot;1&quot;</span> <span class="s">&quot;web&quot;</span> <span class="s">&quot;fox.xbm&quot;</span><span class="p">,</span>
   <span class="n">supWsNum</span> <span class="s">&quot;2&quot;</span> <span class="s">&quot;dev&quot;</span> <span class="s">&quot;arch_10x10.xbm&quot;</span><span class="p">,</span>
   <span class="n">supWsNum</span> <span class="s">&quot;3&quot;</span> <span class="s">&quot;term&quot;</span> <span class="s">&quot;arch.xbm&quot;</span><span class="p">,</span>
@@ -763,28 +893,33 @@
   <span class="p">]</span>
   <span class="kr">where</span>
     <span class="n">supWsNum</span> <span class="n">wsNum</span> <span class="n">wsName</span> <span class="n">wsImg</span> <span class="ow">=</span> <span class="s">&quot;^ca(1,xdotool key Super_L+&quot;</span> <span class="o">++</span> <span class="n">wsNum</span> <span class="o">++</span> <span class="s">&quot;) ^i(&quot;</span> <span class="o">++</span> <span class="n">userImagePath</span> <span class="o">++</span> <span class="n">wsImg</span> <span class="o">++</span> <span class="s">&quot;) &quot;</span> <span class="o">++</span> <span class="n">wsName</span> <span class="o">++</span> <span class="s">&quot; ^ca()&quot;</span></pre></div>
-  </td>
-</tr>
-<tr id='section-57'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-57'>&#955;</a>
     </div>
-<h2 id="workspace-variables">Workspace Variables</h2>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre></pre></div>
-  </td>
-</tr>
-<tr id='section-58'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-58'>&#955;</a>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-56'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-56'>#</a>
+      </div>
+      <h2>Workspace Variables</h2>
     </div>
-<p>You will need to use these to refer to your workspaces at other places in this file (e.g. for some custom rules in the next section). These are zero-indexed, unlike the list above; e.g. Workspace 1 is here as workspace 0, etc.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre><span class="nf">webWs</span>    <span class="ow">=</span> <span class="p">(</span><span class="n">myWorkspaces</span> <span class="o">!!</span> <span class="mi">0</span><span class="p">)</span>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-57'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-57'>#</a>
+      </div>
+      <p>You will need to use these to refer to your workspaces at other places in 
+this file (e.g. for some custom rules in the next section). These are
+zero-indexed, unlike the list above; e.g. Workspace 1 is here as workspace
+0, etc.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nf">webWs</span>    <span class="ow">=</span> <span class="p">(</span><span class="n">myWorkspaces</span> <span class="o">!!</span> <span class="mi">0</span><span class="p">)</span>
 <span class="nf">devWs</span>    <span class="ow">=</span> <span class="p">(</span><span class="n">myWorkspaces</span> <span class="o">!!</span> <span class="mi">1</span><span class="p">)</span>
 <span class="nf">musicWs</span>  <span class="ow">=</span> <span class="p">(</span><span class="n">myWorkspaces</span> <span class="o">!!</span> <span class="mi">2</span><span class="p">)</span>
 <span class="nf">mediaWs</span>  <span class="ow">=</span> <span class="p">(</span><span class="n">myWorkspaces</span> <span class="o">!!</span> <span class="mi">3</span><span class="p">)</span>
@@ -793,39 +928,57 @@
 <span class="nf">misc1Ws</span>   <span class="ow">=</span> <span class="p">(</span><span class="n">myWorkspaces</span> <span class="o">!!</span> <span class="mi">6</span><span class="p">)</span>
 <span class="nf">misc2Ws</span>   <span class="ow">=</span> <span class="p">(</span><span class="n">myWorkspaces</span> <span class="o">!!</span> <span class="mi">7</span><span class="p">)</span>
 <span class="nf">minWs</span>    <span class="ow">=</span> <span class="p">(</span><span class="n">myWorkspaces</span> <span class="o">!!</span> <span class="mi">8</span><span class="p">)</span></pre></div>
-  </td>
-</tr>
-<tr id='section-59'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-59'>&#955;</a>
     </div>
-<h1 id="custom-rules">CUSTOM RULES</h1>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre></pre></div>
-  </td>
-</tr>
-<tr id='section-60'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-60'>&#955;</a>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-58'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-58'>#</a>
+      </div>
+      <h1>CUSTOM RULES</h1>
     </div>
-<p>These are rules for specific applications (e.g. to float by default).</p>
-<p>These hooks fire when a window matching any of the rules below is opened while in Xmonad. This allows you to customize how windows work by default.</p>
-<p>The only rules I have here are to specify that GIMP, mplayer, and others should float by default. In addition, any window with a name of &quot;Copying files&quot; (for nautilus, pcmanfm, and thunar) should also be floated. There are, however, many other kinds of rules that can be specified, such as always opening an application on a specific workspace or in a particular position.</p>
-<p>Rules are set here by specifying the class of the window, a property set by the application that the X server sends to the window manager along with other window properties. As the window class was not distinct enough for the &quot;copying files&quot; dialogs (which should have been set by the application as managed child windows to float automatically), I specified the rule using a string property called &quot;WM_NAME&quot;, which is literally the name of the window.</p>
-<p>You can determine the class name and other properties of a window with the <a href="http://www.xfree86.org/current/xprop.1.html">xprop</a> tool. To use xprop:</p>
-<ol style="list-style-type: decimal">
-<li>run xprop from a terminal emulator from within a running X server. Your cursor should change to a crosshair</li>
-<li>click on a window to see the xprop application print out details like WM_CLASS (the className used below) or WM_NAME.</li>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-59'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-59'>#</a>
+      </div>
+      <p>These are rules for specific applications (e.g. to float by default).</p>
+<p>These hooks fire when a window matching any of the rules below is opened
+while in Xmonad. This allows you to customize how windows work by default.</p>
+<p>The only rules I have here are to specify that GIMP, mplayer, and 
+others should float by default. In addition, any window with a name
+of "Copying files" (for nautilus, pcmanfm, and thunar) should also be
+floated. There are, however, many other kinds of rules that can be specified,
+such as always opening an application on a specific workspace or in a 
+particular position.</p>
+<p>Rules are set here by specifying the class of the window, a property set
+by the application that the X server sends to the window manager along
+with other window properties. As the window class was not distinct
+enough for the "copying files" dialogs (which should have been set by the
+application as managed child windows to float automatically), I specified
+the rule using a string property called "WM_NAME", which is literally the
+name of the window.</p>
+<p>You can determine the class name and other properties of a window with the
+<a href="http://www.xfree86.org/current/xprop.1.html">xprop</a> tool. To use xprop:</p>
+<ol>
+<li>run xprop from a terminal emulator from within a running X server. Your
+cursor should change to a crosshair</li>
+<li>click on a window to see the xprop application print out details like
+WM_CLASS (the className used below) or WM_NAME. </li>
 </ol>
-<p>For any property labeled &quot;(STRING)&quot; in the xprop info, you can add a stringProperty rule to these hooks (like the &quot;Copying Files&quot; dialog below).</p>
-<p>For more info on what kinds of rules you can set, see: http://xmonad.org/xmonad-docs/xmonad-contrib/XMonad-Doc-Extending.html#15</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre>
-<span class="nf">myManageHook</span> <span class="ow">=</span> <span class="n">composeAll</span>
+<p>For any property labeled "(STRING)" in the xprop info, you can add a
+stringProperty rule to these hooks (like the "Copying Files" dialog below).</p>
+<p>For more info on what kinds of rules you can set, see:
+http://xmonad.org/xmonad-docs/xmonad-contrib/XMonad-Doc-Extending.html#15</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nf">myManageHook</span> <span class="ow">=</span> <span class="n">composeAll</span>
     <span class="p">[</span> 
         <span class="n">className</span>                <span class="o">=?</span> <span class="s">&quot;Gimp&quot;</span>           <span class="o">--&gt;</span> <span class="n">doFloat</span> 
     <span class="p">,</span>   <span class="n">className</span>                <span class="o">=?</span> <span class="s">&quot;mplayer&quot;</span>        <span class="o">--&gt;</span> <span class="n">doFloat</span>
@@ -835,528 +988,563 @@
     <span class="p">,</span>   <span class="n">className</span>                <span class="o">=?</span> <span class="s">&quot;Viewnior&quot;</span>       <span class="o">--&gt;</span> <span class="n">doFloat</span>
     <span class="p">,</span>   <span class="n">className</span>                <span class="o">=?</span> <span class="s">&quot;File-roller&quot;</span>    <span class="o">--&gt;</span> <span class="n">doFloat</span>
     <span class="p">,</span>   <span class="n">stringProperty</span> <span class="s">&quot;WM_NAME&quot;</span> <span class="o">=?</span> <span class="s">&quot;Copying files&quot;</span>  <span class="o">--&gt;</span> <span class="n">doFloat</span>
-    <span class="p">]</span>
- </pre></div>
-  </td>
-</tr>
-<tr id='section-61'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-61'>&#955;</a>
+    <span class="p">]</span></pre></div>
     </div>
-<h1 id="key-bindings">KEY BINDINGS</h1>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre></pre></div>
-  </td>
-</tr>
-<tr id='section-62'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-62'>&#955;</a>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-60'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-60'>#</a>
+      </div>
+      <h1>KEY BINDINGS</h1>
     </div>
-<p>There are several methods of specifying keybindings for XMonad. The following way makes most sense to me; it uses string names for keys.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre><span class="nf">myKeys</span> <span class="ow">=</span> <span class="nf">\</span><span class="n">conf</span> <span class="ow">-&gt;</span> <span class="n">mkKeymap</span> <span class="n">conf</span> <span class="o">$</span>
-                <span class="p">[</span> </pre></div>
-  </td>
-</tr>
-<tr id='section-63'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-63'>&#955;</a>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
     </div>
-<h2 id="spawning-programs">Spawning Programs</h2>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre>                </pre></div>
-  </td>
-</tr>
-<tr id='section-64'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-64'>&#955;</a>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-61'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-61'>#</a>
+      </div>
+      <p>There are several methods of specifying keybindings for XMonad. The
+following way makes most sense to me; it uses string names for keys.</p>
     </div>
-<p>Launch the userTerminalCommand defined above.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre>                  <span class="p">(</span><span class="s">&quot;M-S-&lt;Return&gt;&quot;</span><span class="p">,</span> <span class="n">spawn</span> <span class="o">$</span> <span class="kt">XMonad</span><span class="o">.</span><span class="n">terminal</span> <span class="n">conf</span><span class="p">)</span>
-                   </pre></div>
-  </td>
-</tr>
-<tr id='section-65'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-65'>&#955;</a>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nf">myKeys</span> <span class="ow">=</span> <span class="nf">\</span><span class="n">conf</span> <span class="ow">-&gt;</span> <span class="n">mkKeymap</span> <span class="n">conf</span> <span class="o">$</span>
+                <span class="p">[</span></pre></div>
     </div>
-<p>Lock the screen using the userScreenlockCommand defined above.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre>                <span class="p">,</span> <span class="p">(</span><span class="s">&quot;M-C-l&quot;</span><span class="p">,</span>        <span class="n">spawn</span> <span class="o">$</span> <span class="n">userScreenlockCommand</span><span class="p">)</span>
-                </pre></div>
-  </td>
-</tr>
-<tr id='section-66'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-66'>&#955;</a>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-62'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-62'>#</a>
+      </div>
+      <h2>Spawning Programs</h2>
     </div>
-<p>Kill the X server. Hopefully you don't need this.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre>                <span class="p">,</span> <span class="p">(</span><span class="s">&quot;M-C-&lt;Esc&gt;&quot;</span><span class="p">,</span>    <span class="n">spawn</span> <span class="o">$</span> <span class="s">&quot;xkill&quot;</span><span class="p">)</span>
-                </pre></div>
-  </td>
-</tr>
-<tr id='section-67'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-67'>&#955;</a>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
     </div>
-<p>Launch the Xmonad prompt (the program launcher).</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre>                <span class="p">,</span> <span class="p">(</span><span class="s">&quot;M-p&quot;</span><span class="p">,</span>          <span class="n">shellPrompt</span> <span class="n">myXPConfig</span><span class="p">)</span>
-                </pre></div>
-  </td>
-</tr>
-<tr id='section-68'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-68'>&#955;</a>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-63'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-63'>#</a>
+      </div>
+      <p>Launch the userTerminalCommand defined above.</p>
     </div>
-<h2 id="manipulate-the-layout">Manipulate the Layout</h2>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre></pre></div>
-  </td>
-</tr>
-<tr id='section-69'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-69'>&#955;</a>
+    <div class='code'>
+      <div class="highlight"><pre>                  <span class="p">(</span><span class="s">&quot;M-S-&lt;Return&gt;&quot;</span><span class="p">,</span> <span class="n">spawn</span> <span class="o">$</span> <span class="kt">XMonad</span><span class="o">.</span><span class="n">terminal</span> <span class="n">conf</span><span class="p">)</span></pre></div>
     </div>
-<p>Cycle forward through the defined layouts, rearranging the windows of the current workspace as we go.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre>                <span class="p">,</span> <span class="p">(</span><span class="s">&quot;M-&lt;Space&gt;&quot;</span><span class="p">,</span>    <span class="n">sendMessage</span> <span class="kt">NextLayout</span><span class="p">)</span>
-                </pre></div>
-  </td>
-</tr>
-<tr id='section-70'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-70'>&#955;</a>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-64'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-64'>#</a>
+      </div>
+      <p>Lock the screen using the userScreenlockCommand defined
+above.</p>
     </div>
-<p>Advance to the next window.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre>                <span class="p">,</span> <span class="p">(</span><span class="s">&quot;M-&lt;Tab&gt;&quot;</span><span class="p">,</span>      <span class="n">windows</span> <span class="kt">W</span><span class="o">.</span><span class="n">focusDown</span><span class="p">)</span>
-                </pre></div>
-  </td>
-</tr>
-<tr id='section-71'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-71'>&#955;</a>
+    <div class='code'>
+      <div class="highlight"><pre>                <span class="p">,</span> <span class="p">(</span><span class="s">&quot;M-C-l&quot;</span><span class="p">,</span>        <span class="n">spawn</span> <span class="o">$</span> <span class="n">userScreenlockCommand</span><span class="p">)</span></pre></div>
     </div>
-<p>Withdraw to the previous window.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre>                <span class="p">,</span> <span class="p">(</span><span class="s">&quot;M-S-&lt;Tab&gt;&quot;</span><span class="p">,</span>    <span class="n">windows</span> <span class="kt">W</span><span class="o">.</span><span class="n">focusUp</span><span class="p">)</span>
-                </pre></div>
-  </td>
-</tr>
-<tr id='section-72'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-72'>&#955;</a>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-65'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-65'>#</a>
+      </div>
+      <p>Kill the X server. Hopefully you don't need this.</p>
     </div>
-<p>Change window focus to the master window.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre>                <span class="p">,</span> <span class="p">(</span><span class="s">&quot;M-m&quot;</span><span class="p">,</span>          <span class="n">windows</span> <span class="kt">W</span><span class="o">.</span><span class="n">focusMaster</span><span class="p">)</span>
-                </pre></div>
-  </td>
-</tr>
-<tr id='section-73'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-73'>&#955;</a>
+    <div class='code'>
+      <div class="highlight"><pre>                <span class="p">,</span> <span class="p">(</span><span class="s">&quot;M-C-&lt;Esc&gt;&quot;</span><span class="p">,</span>    <span class="n">spawn</span> <span class="o">$</span> <span class="s">&quot;xkill&quot;</span><span class="p">)</span></pre></div>
     </div>
-<p>Swap this window with the next one.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre>                <span class="p">,</span> <span class="p">(</span><span class="s">&quot;M-S-k&quot;</span><span class="p">,</span>        <span class="n">windows</span> <span class="kt">W</span><span class="o">.</span><span class="n">swapDown</span><span class="p">)</span>
-                </pre></div>
-  </td>
-</tr>
-<tr id='section-74'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-74'>&#955;</a>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-66'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-66'>#</a>
+      </div>
+      <p>Launch the Xmonad prompt (the program launcher).</p>
     </div>
-<p>Swap this window with the previous one.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre>                <span class="p">,</span> <span class="p">(</span><span class="s">&quot;M-S-j&quot;</span><span class="p">,</span>        <span class="n">windows</span> <span class="kt">W</span><span class="o">.</span><span class="n">swapUp</span><span class="p">)</span>
-                </pre></div>
-  </td>
-</tr>
-<tr id='section-75'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-75'>&#955;</a>
+    <div class='code'>
+      <div class="highlight"><pre>                <span class="p">,</span> <span class="p">(</span><span class="s">&quot;M-p&quot;</span><span class="p">,</span>          <span class="n">shellPrompt</span> <span class="n">myXPConfig</span><span class="p">)</span></pre></div>
     </div>
-<p>Toggle struts; this can be useful for full-screen programs that do not detect struts properly, like fullscreen firefox or chromium.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre>                <span class="p">,</span> <span class="p">(</span><span class="s">&quot;M-b&quot;</span><span class="p">,</span>          <span class="n">sendMessage</span> <span class="kt">ToggleStruts</span><span class="p">)</span>
-                </pre></div>
-  </td>
-</tr>
-<tr id='section-76'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-76'>&#955;</a>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-67'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-67'>#</a>
+      </div>
+      <h2>Manipulate the Layout</h2>
     </div>
-<p>Decrease the size of the master area.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre>                <span class="p">,</span> <span class="p">(</span><span class="s">&quot;M-h&quot;</span><span class="p">,</span>          <span class="n">sendMessage</span> <span class="kt">Shrink</span><span class="p">)</span>
-                </pre></div>
-  </td>
-</tr>
-<tr id='section-77'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-77'>&#955;</a>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
     </div>
-<p>Increase the size of the master area.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre>                <span class="p">,</span> <span class="p">(</span><span class="s">&quot;M-l&quot;</span><span class="p">,</span>          <span class="n">sendMessage</span> <span class="kt">Expand</span><span class="p">)</span>
-                </pre></div>
-  </td>
-</tr>
-<tr id='section-78'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-78'>&#955;</a>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-68'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-68'>#</a>
+      </div>
+      <p>Cycle forward through the defined layouts, rearranging the
+windows of the current workspace as we go.</p>
     </div>
-<p>Decrease the size of this window (vert for tall, horiz for mirror).</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre>                <span class="p">,</span> <span class="p">(</span><span class="s">&quot;M-S-h&quot;</span><span class="p">,</span>        <span class="n">sendMessage</span> <span class="kt">MirrorShrink</span><span class="p">)</span>
-                </pre></div>
-  </td>
-</tr>
-<tr id='section-79'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-79'>&#955;</a>
+    <div class='code'>
+      <div class="highlight"><pre>                <span class="p">,</span> <span class="p">(</span><span class="s">&quot;M-&lt;Space&gt;&quot;</span><span class="p">,</span>    <span class="n">sendMessage</span> <span class="kt">NextLayout</span><span class="p">)</span></pre></div>
     </div>
-<p>Increase the size of this window (vert for tall, horiz for mirror).</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre>                <span class="p">,</span> <span class="p">(</span><span class="s">&quot;M-S-l&quot;</span><span class="p">,</span>        <span class="n">sendMessage</span> <span class="kt">MirrorExpand</span><span class="p">)</span>
-                </pre></div>
-  </td>
-</tr>
-<tr id='section-80'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-80'>&#955;</a>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-69'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-69'>#</a>
+      </div>
+      <p>Advance to the next window.</p>
     </div>
-<p>Make a floating window no longer float.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre>                <span class="p">,</span> <span class="p">(</span><span class="s">&quot;M-t&quot;</span><span class="p">,</span>          <span class="n">withFocused</span> <span class="o">$</span> <span class="n">windows</span> <span class="o">.</span> <span class="kt">W</span><span class="o">.</span><span class="n">sink</span><span class="p">)</span> 
-                </pre></div>
-  </td>
-</tr>
-<tr id='section-81'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-81'>&#955;</a>
+    <div class='code'>
+      <div class="highlight"><pre>                <span class="p">,</span> <span class="p">(</span><span class="s">&quot;M-&lt;Tab&gt;&quot;</span><span class="p">,</span>      <span class="n">windows</span> <span class="kt">W</span><span class="o">.</span><span class="n">focusDown</span><span class="p">)</span></pre></div>
     </div>
-<p>Add one window to the master area.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre>                <span class="p">,</span> <span class="p">(</span><span class="s">&quot;M-,&quot;</span><span class="p">,</span>          <span class="n">sendMessage</span> <span class="p">(</span><span class="kt">IncMasterN</span> <span class="mi">1</span><span class="p">))</span>
-                </pre></div>
-  </td>
-</tr>
-<tr id='section-82'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-82'>&#955;</a>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-70'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-70'>#</a>
+      </div>
+      <p>Withdraw to the previous window.</p>
     </div>
-<p>Remove one window from the master area.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre>                <span class="p">,</span> <span class="p">(</span><span class="s">&quot;M-.&quot;</span><span class="p">,</span>          <span class="n">sendMessage</span> <span class="p">(</span><span class="kt">IncMasterN</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)))</span>
-                </pre></div>
-  </td>
-</tr>
-<tr id='section-83'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-83'>&#955;</a>
+    <div class='code'>
+      <div class="highlight"><pre>                <span class="p">,</span> <span class="p">(</span><span class="s">&quot;M-S-&lt;Tab&gt;&quot;</span><span class="p">,</span>    <span class="n">windows</span> <span class="kt">W</span><span class="o">.</span><span class="n">focusUp</span><span class="p">)</span></pre></div>
     </div>
-<p>Swap current window with master or, if already master, swap it with the next window.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre>                <span class="p">,</span> <span class="p">(</span><span class="s">&quot;M-&lt;Return&gt;&quot;</span><span class="p">,</span>   <span class="n">dwmpromote</span><span class="p">)</span> </pre></div>
-  </td>
-</tr>
-<tr id='section-84'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-84'>&#955;</a>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-71'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-71'>#</a>
+      </div>
+      <p>Change window focus to the master window.</p>
     </div>
-<h2 id="miscellaneous">Miscellaneous</h2>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre>                </pre></div>
-  </td>
-</tr>
-<tr id='section-85'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-85'>&#955;</a>
+    <div class='code'>
+      <div class="highlight"><pre>                <span class="p">,</span> <span class="p">(</span><span class="s">&quot;M-m&quot;</span><span class="p">,</span>          <span class="n">windows</span> <span class="kt">W</span><span class="o">.</span><span class="n">focusMaster</span><span class="p">)</span></pre></div>
     </div>
-<p>Close the active window (like clicking the &quot;x&quot; in stacking WMs).</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre>                <span class="p">,</span> <span class="p">(</span><span class="s">&quot;M-c&quot;</span><span class="p">,</span>          <span class="n">kill</span><span class="p">)</span></pre></div>
-  </td>
-</tr>
-<tr id='section-86'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-86'>&#955;</a>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-72'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-72'>#</a>
+      </div>
+      <p>Swap this window with the next one.</p>
     </div>
-<p>Leave xmonad.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre>                <span class="p">,</span> <span class="p">(</span><span class="s">&quot;M-S-q&quot;</span><span class="p">,</span>        <span class="n">io</span> <span class="p">(</span><span class="n">exitWith</span> <span class="kt">ExitSuccess</span><span class="p">))</span>
-                </pre></div>
-  </td>
-</tr>
-<tr id='section-87'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-87'>&#955;</a>
+    <div class='code'>
+      <div class="highlight"><pre>                <span class="p">,</span> <span class="p">(</span><span class="s">&quot;M-S-k&quot;</span><span class="p">,</span>        <span class="n">windows</span> <span class="kt">W</span><span class="o">.</span><span class="n">swapDown</span><span class="p">)</span></pre></div>
     </div>
-<p>Recompile and reload the XMonad configuration; this is very handy for tweaking this file while logged in.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre>                <span class="p">,</span> <span class="p">(</span><span class="s">&quot;M-q&quot;</span><span class="p">,</span> <span class="n">spawn</span> <span class="s">&quot;killall conky dzen2; xmonad --recompile &amp;&amp; xmonad --restart&quot;</span><span class="p">)</span>
-                </pre></div>
-  </td>
-</tr>
-<tr id='section-88'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-88'>&#955;</a>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-73'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-73'>#</a>
+      </div>
+      <p>Swap this window with the previous one.</p>
     </div>
-<p>Show all windows.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre>                <span class="p">,</span> <span class="p">(</span><span class="s">&quot;M-g&quot;</span><span class="p">,</span> <span class="n">windowPromptGoto</span> <span class="n">defaultXPConfig</span> <span class="p">)</span>
-                </pre></div>
-  </td>
-</tr>
-<tr id='section-89'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-89'>&#955;</a>
+    <div class='code'>
+      <div class="highlight"><pre>                <span class="p">,</span> <span class="p">(</span><span class="s">&quot;M-S-j&quot;</span><span class="p">,</span>        <span class="n">windows</span> <span class="kt">W</span><span class="o">.</span><span class="n">swapUp</span><span class="p">)</span></pre></div>
     </div>
-<h2 id="mpd-volume-commands">MPD &amp; Volume Commands</h2>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre>                </pre></div>
-  </td>
-</tr>
-<tr id='section-90'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-90'>&#955;</a>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-74'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-74'>#</a>
+      </div>
+      <p>Toggle struts; this can be useful for full-screen programs
+that do not detect struts properly, like fullscreen firefox
+or chromium.</p>
     </div>
-<p>Pause if playing and play if paused/stopped.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre>                <span class="p">,</span> <span class="p">(</span><span class="s">&quot;M-&lt;Home&gt;&quot;</span><span class="p">,</span>          <span class="n">spawn</span> <span class="s">&quot;mpc toggle&quot;</span><span class="p">)</span></pre></div>
-  </td>
-</tr>
-<tr id='section-91'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-91'>&#955;</a>
+    <div class='code'>
+      <div class="highlight"><pre>                <span class="p">,</span> <span class="p">(</span><span class="s">&quot;M-b&quot;</span><span class="p">,</span>          <span class="n">sendMessage</span> <span class="kt">ToggleStruts</span><span class="p">)</span></pre></div>
     </div>
-<p>Advance one track.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre>                <span class="p">,</span> <span class="p">(</span><span class="s">&quot;M-&lt;Page_Up&gt;&quot;</span><span class="p">,</span>          <span class="n">spawn</span> <span class="s">&quot;mpc prev&quot;</span><span class="p">)</span>
-                </pre></div>
-  </td>
-</tr>
-<tr id='section-92'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-92'>&#955;</a>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-75'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-75'>#</a>
+      </div>
+      <p>Decrease the size of the master area.</p>
     </div>
-<p>Retreat one track.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre>                <span class="p">,</span> <span class="p">(</span><span class="s">&quot;M-&lt;Page_Down&gt;&quot;</span><span class="p">,</span>          <span class="n">spawn</span> <span class="s">&quot;mpc next&quot;</span><span class="p">)</span>
-                </pre></div>
-  </td>
-</tr>
-<tr id='section-93'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-93'>&#955;</a>
+    <div class='code'>
+      <div class="highlight"><pre>                <span class="p">,</span> <span class="p">(</span><span class="s">&quot;M-h&quot;</span><span class="p">,</span>          <span class="n">sendMessage</span> <span class="kt">Shrink</span><span class="p">)</span></pre></div>
     </div>
-<p>Stop playback.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre>                <span class="p">,</span> <span class="p">(</span><span class="s">&quot;M-&lt;End&gt;&quot;</span><span class="p">,</span>          <span class="n">spawn</span> <span class="s">&quot;mpc stop&quot;</span><span class="p">)</span></pre></div>
-  </td>
-</tr>
-<tr id='section-94'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-94'>&#955;</a>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-76'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-76'>#</a>
+      </div>
+      <p>Increase the size of the master area.</p>
     </div>
-<p>Decrease the volume.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre>                <span class="p">,</span> <span class="p">(</span><span class="s">&quot;M-&lt;Down&gt;&quot;</span><span class="p">,</span> <span class="n">spawn</span> <span class="p">(</span><span class="s">&quot;amixer set </span><span class="se">\&quot;</span><span class="s">&quot;</span><span class="o">++</span> <span class="n">userAmixerControl</span> <span class="o">++</span><span class="s">&quot;</span><span class="se">\&quot;</span><span class="s"> 5%-&quot;</span><span class="p">))</span>
-                </pre></div>
-  </td>
-</tr>
-<tr id='section-95'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-95'>&#955;</a>
+    <div class='code'>
+      <div class="highlight"><pre>                <span class="p">,</span> <span class="p">(</span><span class="s">&quot;M-l&quot;</span><span class="p">,</span>          <span class="n">sendMessage</span> <span class="kt">Expand</span><span class="p">)</span></pre></div>
     </div>
-<p>Increase the volume.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre>                <span class="p">,</span> <span class="p">(</span><span class="s">&quot;M-&lt;Up&gt;&quot;</span><span class="p">,</span> <span class="n">spawn</span> <span class="p">(</span><span class="s">&quot;amixer set </span><span class="se">\&quot;</span><span class="s">&quot;</span><span class="o">++</span> <span class="n">userAmixerControl</span> <span class="o">++</span><span class="s">&quot;</span><span class="se">\&quot;</span><span class="s"> 5%+&quot;</span><span class="p">))</span></pre></div>
-  </td>
-</tr>
-<tr id='section-96'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-96'>&#955;</a>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-77'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-77'>#</a>
+      </div>
+      <p>Decrease the size of this window (vert for tall, horiz for mirror).</p>
     </div>
-<h2 id="workspaces">Workspaces</h2>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre>                </pre></div>
-  </td>
-</tr>
-<tr id='section-97'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-97'>&#955;</a>
+    <div class='code'>
+      <div class="highlight"><pre>                <span class="p">,</span> <span class="p">(</span><span class="s">&quot;M-S-h&quot;</span><span class="p">,</span>        <span class="n">sendMessage</span> <span class="kt">MirrorShrink</span><span class="p">)</span></pre></div>
     </div>
-<p>Move the active window to the next workspace.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre>                <span class="p">,</span> <span class="p">(</span><span class="s">&quot;M-S-&lt;Right&gt;&quot;</span><span class="p">,</span>  <span class="n">shiftToNext</span> <span class="o">&gt;&gt;</span> <span class="n">nextWS</span><span class="p">)</span></pre></div>
-  </td>
-</tr>
-<tr id='section-98'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-98'>&#955;</a>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-78'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-78'>#</a>
+      </div>
+      <p>Increase the size of this window (vert for tall, horiz for mirror).</p>
     </div>
-<p>Move the active window to the previous workspace.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre>                <span class="p">,</span> <span class="p">(</span><span class="s">&quot;M-S-&lt;Left&gt;&quot;</span><span class="p">,</span>   <span class="n">shiftToPrev</span> <span class="o">&gt;&gt;</span> <span class="n">prevWS</span><span class="p">)</span> </pre></div>
-  </td>
-</tr>
-<tr id='section-99'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-99'>&#955;</a>
+    <div class='code'>
+      <div class="highlight"><pre>                <span class="p">,</span> <span class="p">(</span><span class="s">&quot;M-S-l&quot;</span><span class="p">,</span>        <span class="n">sendMessage</span> <span class="kt">MirrorExpand</span><span class="p">)</span></pre></div>
     </div>
-<p>Go to the next workspace.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre>                <span class="p">,</span> <span class="p">(</span><span class="s">&quot;M-&lt;Left&gt;&quot;</span><span class="p">,</span>     <span class="n">prevNonEmptyWS</span> <span class="p">)</span></pre></div>
-  </td>
-</tr>
-<tr id='section-100'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-100'>&#955;</a>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-79'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-79'>#</a>
+      </div>
+      <p>Make a floating window no longer float.</p>
     </div>
-<p>Go to the previous workspace.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre>                <span class="p">,</span> <span class="p">(</span><span class="s">&quot;M-&lt;Right&gt;&quot;</span><span class="p">,</span>    <span class="n">nextNonEmptyWS</span> <span class="p">)</span>
+    <div class='code'>
+      <div class="highlight"><pre>                <span class="p">,</span> <span class="p">(</span><span class="s">&quot;M-t&quot;</span><span class="p">,</span>          <span class="n">withFocused</span> <span class="o">$</span> <span class="n">windows</span> <span class="o">.</span> <span class="kt">W</span><span class="o">.</span><span class="n">sink</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-80'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-80'>#</a>
+      </div>
+      <p>Add one window to the master area.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>                <span class="p">,</span> <span class="p">(</span><span class="s">&quot;M-,&quot;</span><span class="p">,</span>          <span class="n">sendMessage</span> <span class="p">(</span><span class="kt">IncMasterN</span> <span class="mi">1</span><span class="p">))</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-81'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-81'>#</a>
+      </div>
+      <p>Remove one window from the master area.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>                <span class="p">,</span> <span class="p">(</span><span class="s">&quot;M-.&quot;</span><span class="p">,</span>          <span class="n">sendMessage</span> <span class="p">(</span><span class="kt">IncMasterN</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)))</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-82'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-82'>#</a>
+      </div>
+      <p>Swap current window with master or, if already master, 
+swap it with the next window.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>                <span class="p">,</span> <span class="p">(</span><span class="s">&quot;M-&lt;Return&gt;&quot;</span><span class="p">,</span>   <span class="n">dwmpromote</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-83'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-83'>#</a>
+      </div>
+      <h2>Miscellaneous</h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-84'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-84'>#</a>
+      </div>
+      <p>Close the active window (like clicking the "x" in stacking WMs).</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>                <span class="p">,</span> <span class="p">(</span><span class="s">&quot;M-c&quot;</span><span class="p">,</span>          <span class="n">kill</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-85'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-85'>#</a>
+      </div>
+      <p>Leave xmonad.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>                <span class="p">,</span> <span class="p">(</span><span class="s">&quot;M-S-q&quot;</span><span class="p">,</span>        <span class="n">io</span> <span class="p">(</span><span class="n">exitWith</span> <span class="kt">ExitSuccess</span><span class="p">))</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-86'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-86'>#</a>
+      </div>
+      <p>Recompile and reload the XMonad configuration; this is very handy for tweaking
+this file while logged in.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>                <span class="p">,</span> <span class="p">(</span><span class="s">&quot;M-q&quot;</span><span class="p">,</span> <span class="n">spawn</span> <span class="s">&quot;killall conky dzen2; xmonad --recompile &amp;&amp; xmonad --restart&quot;</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-87'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-87'>#</a>
+      </div>
+      <p>Show all windows.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>                <span class="p">,</span> <span class="p">(</span><span class="s">&quot;M-g&quot;</span><span class="p">,</span> <span class="n">windowPromptGoto</span> <span class="n">defaultXPConfig</span> <span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-88'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-88'>#</a>
+      </div>
+      <h2>MPD &amp; Volume Commands</h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-89'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-89'>#</a>
+      </div>
+      <p>Pause if playing and play if paused/stopped.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>                <span class="p">,</span> <span class="p">(</span><span class="s">&quot;M-&lt;Home&gt;&quot;</span><span class="p">,</span>          <span class="n">spawn</span> <span class="s">&quot;mpc toggle&quot;</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-90'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-90'>#</a>
+      </div>
+      <p>Advance one track.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>                <span class="p">,</span> <span class="p">(</span><span class="s">&quot;M-&lt;Page_Up&gt;&quot;</span><span class="p">,</span>          <span class="n">spawn</span> <span class="s">&quot;mpc prev&quot;</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-91'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-91'>#</a>
+      </div>
+      <p>Retreat one track.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>                <span class="p">,</span> <span class="p">(</span><span class="s">&quot;M-&lt;Page_Down&gt;&quot;</span><span class="p">,</span>          <span class="n">spawn</span> <span class="s">&quot;mpc next&quot;</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-92'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-92'>#</a>
+      </div>
+      <p>Stop playback.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>                <span class="p">,</span> <span class="p">(</span><span class="s">&quot;M-&lt;End&gt;&quot;</span><span class="p">,</span>          <span class="n">spawn</span> <span class="s">&quot;mpc stop&quot;</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-93'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-93'>#</a>
+      </div>
+      <p>Decrease the volume.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>                <span class="p">,</span> <span class="p">(</span><span class="s">&quot;M-&lt;Down&gt;&quot;</span><span class="p">,</span> <span class="n">spawn</span> <span class="p">(</span><span class="s">&quot;amixer set </span><span class="se">\&quot;</span><span class="s">&quot;</span><span class="o">++</span> <span class="n">userAmixerControl</span> <span class="o">++</span><span class="s">&quot;</span><span class="se">\&quot;</span><span class="s"> 5%-&quot;</span><span class="p">))</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-94'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-94'>#</a>
+      </div>
+      <p>Increase the volume.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>                <span class="p">,</span> <span class="p">(</span><span class="s">&quot;M-&lt;Up&gt;&quot;</span><span class="p">,</span> <span class="n">spawn</span> <span class="p">(</span><span class="s">&quot;amixer set </span><span class="se">\&quot;</span><span class="s">&quot;</span><span class="o">++</span> <span class="n">userAmixerControl</span> <span class="o">++</span><span class="s">&quot;</span><span class="se">\&quot;</span><span class="s"> 5%+&quot;</span><span class="p">))</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-95'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-95'>#</a>
+      </div>
+      <h2>Workspaces</h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-96'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-96'>#</a>
+      </div>
+      <p>Move the active window to the next workspace.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>                <span class="p">,</span> <span class="p">(</span><span class="s">&quot;M-S-&lt;Right&gt;&quot;</span><span class="p">,</span>  <span class="n">shiftToNext</span> <span class="o">&gt;&gt;</span> <span class="n">nextWS</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-97'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-97'>#</a>
+      </div>
+      <p>Move the active window to the previous workspace.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>                <span class="p">,</span> <span class="p">(</span><span class="s">&quot;M-S-&lt;Left&gt;&quot;</span><span class="p">,</span>   <span class="n">shiftToPrev</span> <span class="o">&gt;&gt;</span> <span class="n">prevWS</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-98'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-98'>#</a>
+      </div>
+      <p>Go to the next workspace.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>                <span class="p">,</span> <span class="p">(</span><span class="s">&quot;M-&lt;Left&gt;&quot;</span><span class="p">,</span>     <span class="n">prevNonEmptyWS</span> <span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-99'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-99'>#</a>
+      </div>
+      <p>Go to the previous workspace.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>                <span class="p">,</span> <span class="p">(</span><span class="s">&quot;M-&lt;Right&gt;&quot;</span><span class="p">,</span>    <span class="n">nextNonEmptyWS</span> <span class="p">)</span>
                 <span class="p">]</span></pre></div>
-  </td>
-</tr>
-<tr id='section-101'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-101'>&#955;</a>
     </div>
-<h2 id="workspaces-by-number">Workspaces By Number</h2>
-<p>The following appends the list of commands above with keybindings to make M[1-9] switch to the specified workspace and M-S[1-9] move a window to the specified workspace. For example, M-1 goes to workspace one and M-S-1 moves the active window to workspace one.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre>                <span class="o">++</span>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-100'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-100'>#</a>
+      </div>
+      <h2>Workspaces By Number</h2>
+<p>The following appends the list of commands above with
+keybindings to make M[1-9] switch to the specified workspace
+and M-S[1-9] move a window to the specified workspace.  For
+example, M-1 goes to workspace one and M-S-1 moves the
+active window to workspace one.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>                <span class="o">++</span>
                 <span class="p">[</span> <span class="p">(</span><span class="n">m</span> <span class="o">++</span> <span class="n">i</span><span class="p">,</span> <span class="n">windows</span> <span class="o">$</span> <span class="n">f</span> <span class="n">j</span><span class="p">)</span>
                     <span class="o">|</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span> <span class="ow">&lt;-</span> <span class="n">zip</span> <span class="p">(</span><span class="n">map</span> <span class="n">show</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">9</span><span class="p">])</span> <span class="p">(</span><span class="kt">XMonad</span><span class="o">.</span><span class="n">workspaces</span> <span class="n">conf</span><span class="p">)</span>
                     <span class="p">,</span> <span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span> <span class="ow">&lt;-</span> <span class="p">[(</span><span class="s">&quot;M-&quot;</span><span class="p">,</span> <span class="kt">W</span><span class="o">.</span><span class="n">view</span><span class="p">),</span> <span class="p">(</span><span class="s">&quot;M-S-&quot;</span><span class="p">,</span> <span class="kt">W</span><span class="o">.</span><span class="n">shift</span><span class="p">)]</span>
                 <span class="p">]</span></pre></div>
-  </td>
-</tr>
-<tr id='section-102'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-102'>&#955;</a>
     </div>
-<p>These are just convenience methods for identifying the following and previous workspace.</p>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre>    <span class="kr">where</span> 
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-101'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-101'>#</a>
+      </div>
+      <p>These are just convenience methods for identifying the following and
+previous workspace.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="kr">where</span> 
       <span class="n">nextNonEmptyWS</span> <span class="ow">=</span> <span class="n">moveTo</span> <span class="kt">Next</span> <span class="p">(</span><span class="kt">WSIs</span> <span class="p">(</span><span class="n">liftM</span> <span class="p">(</span><span class="n">not</span> <span class="o">.</span><span class="p">)</span> <span class="n">isVisible</span><span class="p">))</span>
       <span class="n">prevNonEmptyWS</span> <span class="ow">=</span> <span class="n">moveTo</span> <span class="kt">Prev</span> <span class="p">(</span><span class="kt">WSIs</span> <span class="p">(</span><span class="n">liftM</span> <span class="p">(</span><span class="n">not</span> <span class="o">.</span><span class="p">)</span> <span class="n">isVisible</span><span class="p">))</span></pre></div>
-  </td>
-</tr>
-<tr id='section-103'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-103'>&#955;</a>
     </div>
-<h1 id="launch-xmonad">LAUNCH XMONAD</h1>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre></pre></div>
-  </td>
-</tr>
-<tr id='section-104'>
-  <td class='docs'>
-    <div class='pilwrap'>
-      <a class='pilcrow' href='#section-104'>&#955;</a>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-102'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-102'>#</a>
+      </div>
+      <h1>LAUNCH XMONAD</h1>
     </div>
-<p>This is the main event loop that launches XMonad and passes in all of the above configuration. It also launches the ppropriate dzen, conky bars, and other applications defined above.</p>
-<p>Optionally, the following can also be included, should they have been defined:</p>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-103'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-103'>#</a>
+      </div>
+      <p>This is the main event loop that launches XMonad and passes in all of the
+above configuration. It also launches the ppropriate dzen, conky bars, and
+other applications defined above.</p>
+<p>Optionally, the following can also be included, should they have been
+defined:</p>
 <pre><code>systemTray &lt;- spawnPipe mySystemTray
-screensaver &lt;- spawnPipe userScreensaverDaemonCommand</code></pre>
-  </td>
-  <td class='code'>
-<div class="highlight"><pre><span class="nf">main</span> <span class="ow">=</span> <span class="kr">do</span>
+screensaver &lt;- spawnPipe userScreensaverDaemonCommand
+</code></pre>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nf">main</span> <span class="ow">=</span> <span class="kr">do</span>
    <span class="n">myStatusBarPipe</span> <span class="ow">&lt;-</span> <span class="n">spawnPipe</span> <span class="n">myStatusBar</span>        <span class="c1">-- open the top bar</span>
    <span class="n">conkyBar</span> <span class="ow">&lt;-</span> <span class="n">spawnPipe</span> <span class="n">myConkyBar</span>                <span class="c1">-- open the top conky bar</span>
    <span class="n">conkyBarBottomL</span> <span class="ow">&lt;-</span> <span class="n">spawnPipe</span> <span class="n">myConkyBarBottomL</span>  <span class="c1">-- open the bottom conky bar</span>
@@ -1376,11 +1564,11 @@ screensaver &lt;- spawnPipe userScreensaverDaemonCommand</code></pre>
       <span class="p">,</span> <span class="n">modMask</span> <span class="ow">=</span> <span class="n">userModMask</span>                      <span class="c1">-- the modifier key</span>
       <span class="p">,</span> <span class="n">keys</span> <span class="ow">=</span> <span class="n">myKeys</span>                              <span class="c1">-- keybindings</span>
       <span class="p">,</span> <span class="n">workspaces</span> <span class="ow">=</span> <span class="n">myWorkspaces</span>                  <span class="c1">-- workspaces</span>
-     <span class="p">}</span>   </pre></div>
-  </td>
-</tr>
-      </tbody>
-    </table>
-  </div>
+     <span class="p">}</span>
 
+</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+</div>
 

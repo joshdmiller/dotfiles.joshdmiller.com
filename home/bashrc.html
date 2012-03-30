@@ -1,140 +1,188 @@
-<div id=container>
-    
-    <table cellspacing=0 cellpadding=0>
-    <thead>
-      <tr>
-        <th class=docs><h1>bashrc</h1></th>
-        <th class=code></th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr><td class='docs'><p><strong>.bashrc</strong> is the primary user-specific Bash configuration file on
+<div id="background"></div>
+<div id='container'>
+  <div class='section'>
+    <div class='docs'><h1>bashrc</h1></div>
+  </div>
+  <div class='clearall'>
+  <div class='section' id='section-0'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-0'>#</a>
+      </div>
+      <p><strong>.bashrc</strong> is the primary user-specific Bash configuration file on
 Linux-based systems. It must be copied to or merged with $HOME/.bashrc and
 will be sourced on each new shell.</p>
-
 <p>My Bash configuration contains several convenience features as well as some
 defaults I find helpful in a Bash environment.</p>
-
 <p>This script has been tested on <a href="http://www.archlinux.org">Arch Linux</a> with
 Bash 4.2.24.</p>
-
-</td><td class=code><div class=highlight><pre>
-<span class="c">#!/bin/bash</span>
-
-</pre></div></td></tr><tr><td class=docs>
-
-<p>If we're not running in an interactive session, we should exit immediately as
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-1'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-1'>#</a>
+      </div>
+      <p>If we're not running in an interactive session, we should exit immediately as
 these options are useless.</p>
-
-</td><td class=code><div class=highlight><pre>
-<span class="o">[</span> -z <span class="s2">&quot;$PS1&quot;</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="k">return</span>
-
-</pre></div></td></tr><tr><td class=docs>
-
-<h2>Shell Options</h2>
-
-</td><td class=code><div class=highlight><pre>
-
-</pre></div></td></tr><tr><td class=docs>
-
-<h3>checkwinsize</h3>
-
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="o">[</span> -z <span class="s2">&quot;$PS1&quot;</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="k">return</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-2'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-2'>#</a>
+      </div>
+      <h2>Shell Options</h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-3'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-3'>#</a>
+      </div>
+      <h3>checkwinsize</h3>
 <p>This ensures that the LINES and COLUMNS are recalculated after
 running each command. My experience indicates this creates a more fluid user
 experience.</p>
-
-</td><td class=code><div class=highlight><pre>
-<span class="nb">shopt</span> -s checkwinsize
-
-</pre></div></td></tr><tr><td class=docs>
-
-<h3>cmdhist</h3>
-
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nb">shopt</span> -s checkwinsize</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-4'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-4'>#</a>
+      </div>
+      <h3>cmdhist</h3>
 <p>This stores history as always one line. Therefore, if a command is typed as:</p>
-
 <pre><code>cmd \
     -a flag1\
     -b flag2
 </code></pre>
-
 <p>it will always be stored as <code>cmd -a flag1 -b flag2</code> in history. I find this
 much easier for re-running commands, especially when they must be modified.</p>
-
-</td><td class=code><div class=highlight><pre>
-<span class="nb">shopt</span> -s cmdhist
-
-</pre></div></td></tr><tr><td class=docs>
-
-<h3>histappend</h3>
-
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nb">shopt</span> -s cmdhist</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-5'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-5'>#</a>
+      </div>
+      <h3>histappend</h3>
 <p>This is a useful option when one uses multiple terminals at one time
 (as I always do). This option will append each session's history to the
 $HISTFILE rather than replace it. This way, history from all terminals can be
 accessed through the <code>history</code> command.</p>
-
-</td><td class=code><div class=highlight><pre>
-<span class="nb">shopt</span> -s histappend
-
-</pre></div></td></tr><tr><td class=docs>
-
-<h3>no empty cmd completion</h3>
-
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nb">shopt</span> -s histappend</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-6'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-6'>#</a>
+      </div>
+      <h3>no empty cmd completion</h3>
 <p>This last option is just for performance; when there is nothing yet to
 complete, don't try to complete everything.</p>
-
-</td><td class=code><div class=highlight><pre>
-<span class="nb">shopt</span> -s no_empty_cmd_completion <span class="c"># don&#39;t complete empty lines</span>
-
-</pre></div></td></tr><tr><td class=docs>
-
-<h3>nocaseglob</h3>
-
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nb">shopt</span> -s no_empty_cmd_completion <span class="c"># don&#39;t complete empty lines</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-7'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-7'>#</a>
+      </div>
+      <h3>nocaseglob</h3>
 <p>The following line if uncommented will match Bash completion
 case-insensitively, so tabbing after <code>./thi</code> will complete <code>./This</code> and
 <code>./tHis</code> in addition to <code>./this</code> should they exist. The default behavior is
 case-sensitive. I find the case-insensitive version a tad annoying when I am
 familiar with the directory in which I reside as I do not want the additional
-completions. However, I include it here as some may find it useful.</p>
-
-</td><td class=code><div class=highlight><pre>
-<span class="c">#/ shopt -s nocaseglob # match filenames case-insensitively</span>
-
-</pre></div></td></tr><tr><td class=docs>
-
-<h3>HISTCONTROL</h3>
-
+completions. However, I include it here as some may find it useful.
+/ shopt -s nocaseglob # match filenames case-insensitively</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-8'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-8'>#</a>
+      </div>
+      <h3>HISTCONTROL</h3>
 <p>Changing the HISTCONTROL environment variable to <code>ignoredups</code> will prevent
 the same command in history from appearing more than once consecutively.</p>
-
-</td><td class=code><div class=highlight><pre>
-<span class="nb">export </span><span class="nv">HISTCONTROL</span><span class="o">=</span>ignoredups
-
-</pre></div></td></tr><tr><td class=docs>
-
-<h3>dircolors</h3>
-
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nb">export </span><span class="nv">HISTCONTROL</span><span class="o">=</span>ignoredups</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-9'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-9'>#</a>
+      </div>
+      <h3>dircolors</h3>
 <p>This configuration file contains color output settings for <code>ls</code>. We only load
 it, however, if it exists and is readable. This extra control is done here
 because its output is directly evaluated by Bash which will lead some nasty
 errors if we the file doesn't exist.</p>
-
-</td><td class=code><div class=highlight><pre>
-<span class="nb">test</span> -r <span class="s2">&quot;$HOME&quot;</span>/bash/dircolors <span class="o">&amp;&amp;</span> <span class="nb">eval</span> <span class="s2">&quot;export $(dircolors -b $HOME/.bash/dircolors)&quot;</span>
-
-</pre></div></td></tr><tr><td class=docs>
-
-<h2>Color Variables</h2>
-
-</td><td class=code><div class=highlight><pre>
-
-</pre></div></td></tr><tr><td class=docs>
-
-<p>The following are a series of colors that are available for other scripts,
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nb">test</span> -r <span class="s2">&quot;$HOME&quot;</span>/bash/dircolors <span class="o">&amp;&amp;</span> <span class="nb">eval</span> <span class="s2">&quot;export $(dircolors -b $HOME/.bash/dircolors)&quot;</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-10'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-10'>#</a>
+      </div>
+      <h2>Color Variables</h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-11'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-11'>#</a>
+      </div>
+      <p>The following are a series of colors that are available for other scripts,
 functions, and prompts to use when defining themselves. They are provided for
 convenience.</p>
-
-</td><td class=code><div class=highlight><pre>
-<span class="nb">export </span><span class="nv">fgblk</span><span class="o">=</span><span class="s2">&quot;$(tput setaf 0)&quot;</span>     <span class="c"># Black - Regular</span>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nb">export </span><span class="nv">fgblk</span><span class="o">=</span><span class="s2">&quot;$(tput setaf 0)&quot;</span>     <span class="c"># Black - Regular</span>
 <span class="nb">export </span><span class="nv">fgred</span><span class="o">=</span><span class="s2">&quot;$(tput setaf 1)&quot;</span>     <span class="c"># Red</span>
 <span class="nb">export </span><span class="nv">fggrn</span><span class="o">=</span><span class="s2">&quot;$(tput setaf 2)&quot;</span>     <span class="c"># Green</span>
 <span class="nb">export </span><span class="nv">fgylw</span><span class="o">=</span><span class="s2">&quot;$(tput setaf 3)&quot;</span>     <span class="c"># Yellow</span>
@@ -171,82 +219,118 @@ convenience.</p>
 <span class="nb">export </span><span class="nv">noundr</span><span class="o">=</span><span class="s2">&quot;$(tput rmul)&quot;</span>   <span class="c"># remove underline</span>
 <span class="nb">export </span><span class="nv">mkbold</span><span class="o">=</span><span class="s2">&quot;$(tput bold)&quot;</span>   <span class="c"># make bold</span>
 <span class="nb">export </span><span class="nv">mkblnk</span><span class="o">=</span><span class="s2">&quot;$(tput blink)&quot;</span>  <span class="c"># make blink</span>
-<span class="nb">export </span><span class="nv">revers</span><span class="o">=</span><span class="s2">&quot;$(tput rev)&quot;</span>    <span class="c"># reverse</span>
-
-</pre></div></td></tr><tr><td class=docs>
-
-<h2>Additional Configuration Files</h2>
-
-</td><td class=code><div class=highlight><pre>
-
-</pre></div></td></tr><tr><td class=docs>
-
-<p>The <a href="#home/bash/bash_funcs">bash functions script</a> defines a set of convenience
+<span class="nb">export </span><span class="nv">revers</span><span class="o">=</span><span class="s2">&quot;$(tput rev)&quot;</span>    <span class="c"># reverse</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-12'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-12'>#</a>
+      </div>
+      <h2>Additional Configuration Files</h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-13'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-13'>#</a>
+      </div>
+      <p>The <a href="#home/bash/bash_funcs">bash functions script</a> defines a set of convenience
 functions to be used by the user from the command line.</p>
-
-</td><td class=code><div class=highlight><pre>
-<span class="nb">source</span> <span class="s2">&quot;$HOME&quot;</span>/.bash/bash_funcs
-
-</pre></div></td></tr><tr><td class=docs>
-
-<p>The <a href="#home/bash/alias">bash aliases script</a> defines a set of aliases for common
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nb">source</span> <span class="s2">&quot;$HOME&quot;</span>/.bash/bash_funcs</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-14'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-14'>#</a>
+      </div>
+      <p>The <a href="#home/bash/alias">bash aliases script</a> defines a set of aliases for common
 commands, including Pacman and Git.</p>
-
-</td><td class=code><div class=highlight><pre>
-<span class="nb">source</span> <span class="s2">&quot;$HOME&quot;</span>/.bash/alias
-
-</pre></div></td></tr><tr><td class=docs>
-
-<p>The <a href="#home/bash/completion">bash completion script</a> defines a set of additional
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nb">source</span> <span class="s2">&quot;$HOME&quot;</span>/.bash/alias</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-15'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-15'>#</a>
+      </div>
+      <p>The <a href="#home/bash/completion">bash completion script</a> defines a set of additional
 Bash completion operations for commands not supported out of the box with the
 bash_completion package. These include allowing my sudo alias <code>s</code> to complete
 just like sudo.</p>
-
-</td><td class=code><div class=highlight><pre>
-<span class="nb">source</span> <span class="s2">&quot;$HOME&quot;</span>/.bash/completion
-
-</pre></div></td></tr><tr><td class=docs>
-
-<p>The <a href="#home/bash/prompt">bash prompts script</a> provides a series of bash prompts
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nb">source</span> <span class="s2">&quot;$HOME&quot;</span>/.bash/completion</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-16'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-16'>#</a>
+      </div>
+      <p>The <a href="#home/bash/prompt">bash prompts script</a> provides a series of bash prompts
 that I have used, with only one being uncommented at any one time.</p>
-
-</td><td class=code><div class=highlight><pre>
-<span class="nb">source</span> <span class="s2">&quot;$HOME&quot;</span>/.bash/prompt
-
-</pre></div></td></tr><tr><td class=docs>
-
-<h2>Environment Variables</h2>
-
-</td><td class=code><div class=highlight><pre>
-
-</pre></div></td></tr><tr><td class=docs>
-
-<p>I <strong>love</strong> Vim. Naturally, it is my editor of choice. The $EDITOR variable is
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nb">source</span> <span class="s2">&quot;$HOME&quot;</span>/.bash/prompt</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-17'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-17'>#</a>
+      </div>
+      <h2>Environment Variables</h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-18'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-18'>#</a>
+      </div>
+      <p>I <strong>love</strong> Vim. Naturally, it is my editor of choice. The $EDITOR variable is
 used by many shell programs in Linux, so it is helpful to define, though most
 distributions contain a default. Too often, however, it is Nano, for which I
 do not care. God save the Vim.</p>
-
-</td><td class=code><div class=highlight><pre>
-<span class="nb">export </span><span class="nv">EDITOR</span><span class="o">=</span>vim
-
-</pre></div></td></tr><tr><td class=docs>
-
-<p>I store my source repositories in a special directory I access frequently, so
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nb">export </span><span class="nv">EDITOR</span><span class="o">=</span>vim</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-19'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-19'>#</a>
+      </div>
+      <p>I store my source repositories in a special directory I access frequently, so
 I have a shortcut here. The "/store" directory is a mount point for an
 independent hard drive. I designed this setup to survive blasts.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nb">export </span><span class="nv">REPOS</span><span class="o">=</span>/store/dev/repos
 
-</td><td class=code><div class=highlight><pre>
-<span class="nb">export </span><span class="nv">REPOS</span><span class="o">=</span>/store/dev/repos
-
-
-
-</pre></div></td></tr><tr><td class=docs>
-
-</td><td class=code><div class=highlight><pre>
-
-</pre></div></td></tr><tr><td class=docs></td><td class='code'></td></tr>
-    </tbody>
-    </table>
+</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
 </div>
-
 

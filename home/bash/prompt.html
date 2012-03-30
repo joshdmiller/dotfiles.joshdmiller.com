@@ -1,110 +1,159 @@
-<div id=container>
-    
-    <table cellspacing=0 cellpadding=0>
-    <thead>
-      <tr>
-        <th class=docs><h1>prompt</h1></th>
-        <th class=code></th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr><td class='docs'><p><strong>prompt</strong> contains various Bash prompts and helper methods I have collected
+<div id="background"></div>
+<div id='container'>
+  <div class='section'>
+    <div class='docs'><h1>prompt</h1></div>
+  </div>
+  <div class='clearall'>
+  <div class='section' id='section-0'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-0'>#</a>
+      </div>
+      <p><strong>prompt</strong> contains various Bash prompts and helper methods I have collected
 and/or written over the years. Only one can be used at a time, obviously, so
 only the last entry is used.</p>
-
 <p>These have been tested on <a href="http://www.archlinux.org">Arch Linux</a> using Bash 2.2.24.</p>
-
-</td><td class=code><div class=highlight><pre>
-<span class="c">#!/bin/bash</span>
-
-</pre></div></td></tr><tr><td class=docs>
-
-<h2>Single-Line Prompts</h2>
-
-</td><td class=code><div class=highlight><pre>
-
-</pre></div></td></tr><tr><td class=docs>
-
-<p>This is the default Arch Linux prompt.</p>
-
-<p><img src="/img/prompt_basic_001.png" alt="The most basic prompt" title="" /></p>
-
-</td><td class=code><div class=highlight><pre>
-<span class="nv">PS1</span><span class="o">=</span><span class="s1">&#39;[\u@\h \W]\$ &#39;</span>
-
-</pre></div></td></tr><tr><td class=docs>
-
-<p>This is a basic prompt with custom colors and the current working directory
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-1'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-1'>#</a>
+      </div>
+      <h2>Single-Line Prompts</h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-2'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-2'>#</a>
+      </div>
+      <p>This is the default Arch Linux prompt.</p>
+<p><img alt="The most basic prompt" src="/img/prompt_basic_001.png" /></p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nv">PS1</span><span class="o">=</span><span class="s1">&#39;[\u@\h \W]\$ &#39;</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-3'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-3'>#</a>
+      </div>
+      <p>This is a basic prompt with custom colors and the current working directory
 displayed.</p>
-
-<p><img src="/img/prompt_basic_002.png" alt="A basic prompt with some style" title="" /></p>
-
-</td><td class=code><div class=highlight><pre>
-<span class="nv">PS1</span><span class="o">=</span><span class="s1">&#39;\[\e[0;31m\]\u\[\e[m\] \[\e[1;34m\]\w\[\e[m\] \[\e[0;31m\]\$ \[\e[m\]\[\e[0;32m\] &#39;</span>
-
-</pre></div></td></tr><tr><td class=docs>
-
-<h2>Multi-Line Prompts</h2>
-
-</td><td class=code><div class=highlight><pre>
-
-</pre></div></td></tr><tr><td class=docs>
-
-<p>This is a very basic two-line prompt. No new information is introduced here.</p>
-
-<p><img src="/img/prompt_multiline_002.png" alt="A basic two-line prompt" title="" /></p>
-
-</td><td class=code><div class=highlight><pre>
-<span class="nv">PS1</span><span class="o">=</span><span class="s1">&#39;\n\[\e[0;32m\]┌─[ \[\e[1;32m\]\u\[\e[0m\e[0;32m\] ][ \[\e[33;1m\]\w\[\e[0;32m\] </span>
-<span class="s1">\n\[\e[0;32m\]└─╼\[\e[0m\] &#39;</span>
-
-</pre></div></td></tr><tr><td class=docs>
-
-<p>This is also a basic two-line prompt. No new information is introduced here
+<p><img alt="A basic prompt with some style" src="/img/prompt_basic_002.png" /></p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nv">PS1</span><span class="o">=</span><span class="s1">&#39;\[\e[0;31m\]\u\[\e[m\] \[\e[1;34m\]\w\[\e[m\] \[\e[0;31m\]\$ \[\e[m\]\[\e[0;32m\] &#39;</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-4'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-4'>#</a>
+      </div>
+      <h2>Multi-Line Prompts</h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-5'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-5'>#</a>
+      </div>
+      <p>This is a very basic two-line prompt. No new information is introduced here.</p>
+<p><img alt="A basic two-line prompt" src="/img/prompt_multiline_002.png" /></p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nv">PS1</span><span class="o">=</span><span class="s1">&#39;\n\[\e[0;32m\]ââ[ \[\e[1;32m\]\u\[\e[0m\e[0;32m\] ][ \[\e[33;1m\]\w\[\e[0;32m\] </span>
+<span class="s1">\n\[\e[0;32m\]âââ¼\[\e[0m\] &#39;</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-6'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-6'>#</a>
+      </div>
+      <p>This is also a basic two-line prompt. No new information is introduced here
 either.</p>
+<p><img alt="A basic two-line prompt" src="/img/prompt_multiline_003.png" /></p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nv">PS1</span><span class="o">=</span><span class="s2">&quot;\n\033[1;37m\]ââ[\[\e[36;1m\]\u@\[\e[32;1m\]\H\[\033[1;37m\]] \n\[\033[1;37m\]ââ[\[\033[0;36m\]\w\[\033[1;37m\]]&gt; \[\e[0m\]&quot;</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-7'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-7'>#</a>
+      </div>
+      <p>This is a two-line prompt with additional relevant information.</p>
+<p><img alt="An informative two-line prompt" src="/img/prompt_multiline_001.png" /></p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nv">PS1</span><span class="o">=</span><span class="s1">&#39;\n\[\e[0;32m\]ââ[\u\[\e[0m\]@\[\e[0;36m\]\h\[\e[0m\e[0;32m\]] -\</span>
+<span class="s1"> [\[\e[0m\]\t \d\[\e[0;32m\]] - [\[\e[33;1m\]\w\[\e[0;32m\]]\nââ[\$]&gt;\[\e[0m\] &#39;</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-8'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-8'>#</a>
+      </div>
+      <h2>Current/Active Prompt</h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-9'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-9'>#</a>
+      </div>
+      <p>This is a two-line prompt with additional relevant information and a fun style.</p>
+<p><img alt="A fun two-line prompt" src="/img/prompt_multiline_004.png" /></p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nv">PS1</span><span class="o">=</span><span class="s1">&#39;\n\[\033[0;32m\]ââ¼ââ¼â \[\033[0m\033[0;32m\]\u\[\033[0m\] \</span>
+<span class="s1">#DIVIDER</span>
+<span class="s1">@ \[\033[0;36m\]\h\[\033[0m\033[0;32m\] ââ¤ââ \[\033[0m\]\t \d\[\033[0;32m\] ââ¤\</span>
+<span class="s1">ââ \[\033[0;34m\]\w\[\033[0;32m\] ââ¤ \n\[\033[0;32m\]ââ¼â\</span>
+<span class="s1">\[\033[0m\033[0;32m\]\$\[\033[0m\033[0;32m\]ââ¤â¶\[\033[0m\] &#39;</span>
 
-<p><img src="/img/prompt_multiline_003.png" alt="A basic two-line prompt" title="" /></p>
-
-</td><td class=code><div class=highlight><pre>
-<span class="nv">PS1</span><span class="o">=</span><span class="s2">&quot;\n\033[1;37m\]┌─[\[\e[36;1m\]\u@\[\e[32;1m\]\H\[\033[1;37m\]] \n\[\033[1;37m\]└─[\[\033[0;36m\]\w\[\033[1;37m\]]&gt; \[\e[0m\]&quot;</span>
-
-</pre></div></td></tr><tr><td class=docs>
-
-<p>This is a two-line prompt with additional relevant information.</p>
-
-<p><img src="/img/prompt_multiline_001.png" alt="An informative two-line prompt" title="" /></p>
-
-</td><td class=code><div class=highlight><pre>
-<span class="nv">PS1</span><span class="o">=</span><span class="s1">&#39;\n\[\e[0;32m\]┌─[\u\[\e[0m\]@\[\e[0;36m\]\h\[\e[0m\e[0;32m\]] -\</span>
-<span class="s1"> [\[\e[0m\]\t \d\[\e[0;32m\]] - [\[\e[33;1m\]\w\[\e[0;32m\]]\n└─[\$]&gt;\[\e[0m\] &#39;</span>
-
-</pre></div></td></tr><tr><td class=docs>
-
-<h2>Current/Active Prompt</h2>
-
-</td><td class=code><div class=highlight><pre>
-
-</pre></div></td></tr><tr><td class=docs>
-
-<p>This is a two-line prompt with additional relevant information and a fun style.</p>
-
-<p><img src="/img/prompt_multiline_004.png" alt="A fun two-line prompt" title="" /></p>
-
-</td><td class=code><div class=highlight><pre>
-<span class="nv">PS1</span><span class="o">=</span><span class="s1">&#39;\n\[\033[0;32m\]┌┼─┼─ \[\033[0m\033[0;32m\]\u\[\033[0m\] \</span>
-<span class="s1">@ \[\033[0;36m\]\h\[\033[0m\033[0;32m\] ─┤├─ \[\033[0m\]\t \d\[\033[0;32m\] ─┤\</span>
-<span class="s1">├─ \[\033[0;34m\]\w\[\033[0;32m\] ─┤ \n\[\033[0;32m\]└┼─\</span>
-<span class="s1">\[\033[0m\033[0;32m\]\$\[\033[0m\033[0;32m\]─┤▶\[\033[0m\] &#39;</span>
-
-
-
-</pre></div></td></tr><tr><td class=docs>
-
-</td><td class=code><div class=highlight><pre>
-
-</pre></div></td></tr><tr><td class=docs></td><td class='code'></td></tr>
-    </tbody>
-    </table>
+</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-10'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-10'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
 </div>
-
 

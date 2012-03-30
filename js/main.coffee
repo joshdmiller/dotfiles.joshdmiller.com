@@ -78,6 +78,12 @@ require ["dojo/data/ItemFileReadStore",
                     properties:
                         left: 320
                 .play()
+                
+                fx.animateProperty
+                    node: "background"
+                    properties:
+                        left: 860
+                .play()
             else
                 fx.fadeOut
                     node: "menu"
@@ -87,6 +93,12 @@ require ["dojo/data/ItemFileReadStore",
                     node: "body"
                     properties:
                         left: 0
+                .play()
+                
+                fx.animateProperty
+                    node: "background"
+                    properties:
+                        left: 540
                 .play()
 
     # Launch the router and go to the provided route

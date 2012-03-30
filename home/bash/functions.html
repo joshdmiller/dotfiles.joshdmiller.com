@@ -1,115 +1,151 @@
-<div id=container>
-    
-    <table cellspacing=0 cellpadding=0>
-    <thead>
-      <tr>
-        <th class=docs><h1>functions</h1></th>
-        <th class=code></th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr><td class='docs'><p>These functions are defined for use from the command line by a human user as
+<div id="background"></div>
+<div id='container'>
+  <div class='section'>
+    <div class='docs'><h1>functions</h1></div>
+  </div>
+  <div class='clearall'>
+  <div class='section' id='section-0'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-0'>#</a>
+      </div>
+      <p>These functions are defined for use from the command line by a human user as
 a convenience.</p>
-
 <p>This script has been tested on <a href="http://www.archlinux.org">Arch Linux</a> with Bash 4.2.24.</p>
-
-</td><td class=code><div class=highlight><pre>
-<span class="c">#!/bin/bash</span>
-
-</pre></div></td></tr><tr><td class=docs>
-
-<h2>Daemon Handling</h2>
-
-</td><td class=code><div class=highlight><pre>
-
-</pre></div></td></tr><tr><td class=docs>
-
-<p>This function starts a daemon in the rc.d style. This could also have been
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-1'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-1'>#</a>
+      </div>
+      <h2>Daemon Handling</h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-2'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-2'>#</a>
+      </div>
+      <p>This function starts a daemon in the rc.d style. This could also have been
 defined using the rc.d command-line application, but this is more direct.</p>
-
-</td><td class=code><div class=highlight><pre>
-<span class="k">function </span>start<span class="o">()</span> <span class="o">{</span>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">function </span>start<span class="o">()</span> <span class="o">{</span>
         <span class="k">for </span>arg in <span class="nv">$@</span>
         <span class="k">do</span>
 <span class="k">                </span>sudo /etc/rc.d/<span class="nv">$arg</span> start
         <span class="k">done</span>
-<span class="o">}</span>
-
-</pre></div></td></tr><tr><td class=docs>
-
-<p>This function stops a daemon in the rc.d style. This could also have been
+<span class="o">}</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-3'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-3'>#</a>
+      </div>
+      <p>This function stops a daemon in the rc.d style. This could also have been
 defined using the rc.d command-line application, but this is more direct.</p>
-
-</td><td class=code><div class=highlight><pre>
-<span class="k">function </span>stop<span class="o">()</span> <span class="o">{</span>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">function </span>stop<span class="o">()</span> <span class="o">{</span>
         <span class="k">for </span>arg in <span class="nv">$@</span>
         <span class="k">do</span>
 <span class="k">                </span>sudo /etc/rc.d/<span class="nv">$arg</span> stop
         <span class="k">done</span>
-<span class="o">}</span>
-
-</pre></div></td></tr><tr><td class=docs>
-
-<p>This function restarts a daemon in the rc.d style. This could also have been
+<span class="o">}</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-4'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-4'>#</a>
+      </div>
+      <p>This function restarts a daemon in the rc.d style. This could also have been
 defined using the rc.d command-line application, but this is more direct.</p>
-
-</td><td class=code><div class=highlight><pre>
-<span class="k">function </span>restart<span class="o">()</span> <span class="o">{</span>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">function </span>restart<span class="o">()</span> <span class="o">{</span>
         <span class="k">for </span>arg in <span class="nv">$@</span>
         <span class="k">do</span>
 <span class="k">                </span>sudo /etc/rc.d/<span class="nv">$arg</span> restart
         <span class="k">done</span>
-<span class="o">}</span>
-
-</pre></div></td></tr><tr><td class=docs>
-
-<p>This function reports on the status a daemon in the rc.d style. This could
+<span class="o">}</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-5'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-5'>#</a>
+      </div>
+      <p>This function reports on the status a daemon in the rc.d style. This could
 also have been defined using the rc.d command-line application, but this is
 more direct.</p>
-
-</td><td class=code><div class=highlight><pre>
-<span class="k">function </span>status<span class="o">()</span> <span class="o">{</span>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">function </span>status<span class="o">()</span> <span class="o">{</span>
         <span class="k">for     </span>arg in <span class="nv">$@</span>
         <span class="k">do</span>
 <span class="k">                </span>sudo /etc/rc.d/<span class="nv">$arg</span> status
         <span class="k">done</span>
-<span class="o">}</span>
-
-</pre></div></td></tr><tr><td class=docs>
-
-<h2>Miscellaenous</h2>
-
-</td><td class=code><div class=highlight><pre>
-
-</pre></div></td></tr><tr><td class=docs>
-
-<p>This method change the terminal title. This should be compatible with most
+<span class="o">}</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-6'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-6'>#</a>
+      </div>
+      <h2>Miscellaenous</h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-7'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-7'>#</a>
+      </div>
+      <p>This method change the terminal title. This should be compatible with most
 emulators.</p>
-
-</td><td class=code><div class=highlight><pre>
-<span class="k">function </span>chtitle<span class="o">()</span> <span class="o">{</span>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">function </span>chtitle<span class="o">()</span> <span class="o">{</span>
         <span class="nb">echo</span> -ne <span class="s2">&quot;\033]0;${1:-$TERM}\007&quot;</span>;
-<span class="o">}</span>
-
-</pre></div></td></tr><tr><td class=docs>
-
-<p>This function makes directory then changes directory into it. Very handy for
+<span class="o">}</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-8'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-8'>#</a>
+      </div>
+      <p>This function makes directory then changes directory into it. Very handy for
 the lazy.</p>
-
-</td><td class=code><div class=highlight><pre>
-<span class="k">function </span>cdnew<span class="o">()</span> <span class="o">{</span>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">function </span>cdnew<span class="o">()</span> <span class="o">{</span>
             mkdir -vp <span class="s2">&quot;$1&quot;</span> <span class="o">&amp;&amp;</span> <span class="nb">cd</span> <span class="s2">&quot;$_&quot;</span>;
 <span class="o">}</span>
 
-
-
-</pre></div></td></tr><tr><td class=docs>
-
-</td><td class=code><div class=highlight><pre>
-
-</pre></div></td></tr><tr><td class=docs></td><td class='code'></td></tr>
-    </tbody>
-    </table>
+</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
 </div>
-
 

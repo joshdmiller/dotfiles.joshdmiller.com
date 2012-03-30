@@ -20,7 +20,8 @@
                     ] },
                     { id: 'home/xmonad/xmonad.hs', name: 'xmonad.hs' },
                 ]},
-                { id: 'home/bashrc', name: '.bashrc', url: '#home/bashrc' },
+                { id: 'home/bashrc', name: '.bashrc' },
+                { id: 'home/Xresources', name: '.Xresources' }
             ]},
             { id: 'etc', name: '/etc', children: [
                 { id: 'etc/sudoers', name: 'sudoers', url: '#home/sudoers' }
