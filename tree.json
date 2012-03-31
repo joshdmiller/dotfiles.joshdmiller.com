@@ -21,11 +21,9 @@
                     { id: 'home/xmonad/xmonad.hs', name: 'xmonad.hs' },
                 ]},
                 { id: 'home/bashrc', name: '.bashrc' },
-                { id: 'home/Xresources', name: '.Xresources' }
+                { id: 'home/Xresources', name: '.Xresources' },
+                { id: 'home/vimrc', name: '.vimrc' },
             ]},
-            { id: 'etc', name: '/etc', children: [
-                { id: 'etc/sudoers', name: 'sudoers', url: '#home/sudoers' }
-            ] }
         ]}
     ]
 }

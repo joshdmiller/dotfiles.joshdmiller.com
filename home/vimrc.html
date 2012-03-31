@@ -1,0 +1,342 @@
+<div id="background"></div>
+<div id='container'>
+  <div class='section'>
+    <div class='docs'><h1>vimrc</h1></div>
+  </div>
+  <div class='clearall'>
+  <div class='section' id='section-0'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-0'>#</a>
+      </div>
+      <p>The <code>$HOME/.vimrc</code> file is the primary user-specific configuration file for
+the <a href="http://www.vim.org/">Vim</a> advanced text editor. Vim is by far my
+favorite text editor. When I program, I use Vim. When I
+edit configuration files, I use Vim. When I blog, I use Vim. Even when I
+browse the web, I use Vim (actually I use
+<a href="http://www.vimperator.org">Vimperator</a>, a Firefox plugin that adds command
+mode and Vim-like keybindings).</p>
+<p>This file is the entry point to my entire Vim configuration, including both
+the console-based Vim and the graphical GVim. Each option is discussed as
+it is set.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-1'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-1'>#</a>
+      </div>
+      <h2>Basic Options</h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-2'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-2'>#</a>
+      </div>
+      <p>The majority of the time I run Vim, there is something with a defined
+syntax, from this very file to Go source code to CoffeeScript files to
+stylesheets. The following option enables syntax highlighting that filetype
+plugins utilize.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nb">syntax</span> <span class="k">on</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-3'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-3'>#</a>
+      </div>
+      <p>No matter what I am editing, I like to see line numbers to the left.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">set</span> <span class="k">number</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-4'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-4'>#</a>
+      </div>
+      <p>As a matter of best practice, I try to keep all lines in files from
+exceeding 80 characters so there are no wrapping issues when viewed
+anywhere. The following command will create a vertical line at 80
+characters. In most of my color themes, it will show as red.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">set</span> <span class="nb">colorcolumn</span><span class="p">=</span><span class="m">80</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-5'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-5'>#</a>
+      </div>
+      <p>I want the status line that appears at the bottom of the screen to be
+visible by default, rather than only under certain conditions.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">set</span> <span class="nb">laststatus</span><span class="p">=</span><span class="m">2</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-6'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-6'>#</a>
+      </div>
+      <p>I like to see the line on which the cursor sits to be highlighted so it is
+easier to locate.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">set</span> <span class="nb">cursorline</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-7'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-7'>#</a>
+      </div>
+      <p>The <code>smartindent</code> option has Vim use intelligent rules to determine when and
+how much to indent. This is very handy when editing code or bulleted lists.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">set</span> <span class="nb">smartindent</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-8'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-8'>#</a>
+      </div>
+      <p>As a general rule, I prefer spaces instead of tabs. The following options
+expand tab keypresses to four spaces. I also set tabs to present themselves
+as four spaces for those files that require tabs (like a Makefile).</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">set</span> <span class="nb">expandtab</span>
+<span class="k">set</span> <span class="nb">shiftwidth</span><span class="p">=</span><span class="m">4</span>
+<span class="k">set</span> <span class="nb">softtabstop</span><span class="p">=</span><span class="m">4</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-9'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-9'>#</a>
+      </div>
+      <p>There some Vi compatibilities that I don't like, so I get rid of them. </p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">set</span> <span class="nb">nocompatible</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-10'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-10'>#</a>
+      </div>
+      <p>I very much like the <code>Clean</code> monospaced/fixed-width font. This sets it as
+the default when using GVim.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">set</span> <span class="nb">guifont</span><span class="p">=</span>Clean</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-11'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-11'>#</a>
+      </div>
+      <p>I like to have a darker color scheme when running GVim. Of the built-in
+schemes, I tend to like Koehler.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">colorscheme</span> koehler</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-12'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-12'>#</a>
+      </div>
+      <p>I prefer not to keep file history in the menus of GVim.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">let</span> <span class="k">g</span>:bmenu_max_pathlen<span class="p">=</span><span class="m">0</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-13'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-13'>#</a>
+      </div>
+      <h2>Plugins</h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-14'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-14'>#</a>
+      </div>
+      <p>The following asks Vim to autodetect the type of file I have open and load
+its plugin. The <code>filetype indent</code> option also asks Vim to load the
+filetype's indent plugin if it exists. This is a must if you expand tabs to
+spaces and edit Makefiles, as I do.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">filetype</span> plugin <span class="k">on</span>
+<span class="k">filetype</span> indent <span class="k">on</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-15'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-15'>#</a>
+      </div>
+      <p>Adding and deleting Vim scripts can be tough to manage. If you code in, say,
+C, you have files for syntax, a filetype detection, plugin features, and
+more - and all of these files are stored in separate directories along with
+like files from all of your other plugins. If you want to remove a plugin,
+you must search all of these directories and delete them manually. What a
+mess. Instead, I love the <a href="https://github.com/tpope/vim-pathogen">Pathogen</a> 
+package management system. It allows you to keep all of your plugins in
+their own directories, so adding and deleting is a breeze. </p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-16'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-16'>#</a>
+      </div>
+      <p>To load it, I first add Pathogen's autoload to the runtime and then I call
+<code>Pathogen#infect</code> to load all my plugins, passing it the folder inside
+<code>$HOME/.vim/</code> where they are stored. See the
+<a href="#/home/vim/README.markdown">README</a> inside the <code>packages</code> directory for
+information on my plugins.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>runtime pathogen<span class="sr">/autoload/</span>pathogen.<span class="k">vim</span>
+<span class="k">call</span> pathogen#infect<span class="p">(</span><span class="s1">&#39;packages&#39;</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-17'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-17'>#</a>
+      </div>
+      <p>One of the plugins I use is <a href="https://github.com/scrooloose/nerdtree">NERDTree</a>, 
+a file tree explorer. If I launch Vim without specifying any file, I want it
+to open NERDTree.</p>
+<p>Also, I do not need all files to appear, so I tell NERDTree to ignore
+certain types of files.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>autocmd GuiEnter * <span class="k">if</span> <span class="p">!</span>argc<span class="p">()</span> <span class="p">|</span> edit `<span class="k">pwd</span>` <span class="p">|</span> <span class="k">endif</span>
+<span class="k">let</span> NERDTreeIgnore<span class="p">=</span>[ <span class="s1">&#39;\.o$&#39;</span><span class="p">,</span> <span class="s1">&#39;\.swp$&#39;</span><span class="p">,</span> <span class="s1">&#39;\~$&#39;</span><span class="p">,</span> <span class="s1">&#39;\.class$&#39;</span> ]</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-18'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-18'>#</a>
+      </div>
+      <p>For some reason, YAML files do not have filetype detection, so we add it
+here simply based on the file extension.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">au</span> <span class="nb">BufNewFile</span><span class="p">,</span><span class="nb">BufRead</span> *.yaml<span class="p">,</span>*.yml <span class="k">setfiletype</span> yaml</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-19'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-19'>#</a>
+      </div>
+      <p>For the LessCSS plugin, I have a convenience keybinding to run the lessc
+command and to pipe the contents to the file with the same name but with the
+extension <code>css</code> rather than <code>less</code>.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nb">nnoremap</span> <span class="p">,</span><span class="k">m</span> :<span class="k">w</span> <span class="p">&lt;</span>BAR<span class="p">&gt;</span> <span class="p">!</span>lessc % <span class="p">&gt;</span> %:<span class="k">t</span>:<span class="k">r</span>.css<span class="p">&lt;</span>CR<span class="p">&gt;&lt;</span>space<span class="p">&gt;</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-20'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-20'>#</a>
+      </div>
+      <h2>Custom Key Mappings</h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-21'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-21'>#</a>
+      </div>
+      <p>Here are a few keybindings I've included for convenience. The first two map
+<code>Control+s</code> to write out the current buffer and continue where I left off. The
+third maps <code>Control+p</code> to put the contents of Vim's clipboard buffer to after
+the cursor.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>imap <span class="p">&lt;</span>C<span class="p">-</span><span class="k">s</span><span class="p">&gt;</span> <span class="p">&lt;</span>ESC<span class="p">&gt;</span>:<span class="k">w</span><span class="p">&lt;</span>CR<span class="p">&gt;</span><span class="k">a</span>
+nmap <span class="p">&lt;</span>C<span class="p">-</span><span class="k">s</span><span class="p">&gt;</span> <span class="p">&lt;</span>ESC<span class="p">&gt;</span>:<span class="k">w</span><span class="p">&lt;</span>CR<span class="p">&gt;</span>
+imap <span class="p">&lt;</span>C<span class="p">-</span><span class="k">p</span><span class="p">&gt;</span> <span class="p">&lt;</span>ESC<span class="p">&gt;</span><span class="k">p</span><span class="p">&lt;</span>CR<span class="p">&gt;</span><span class="k">a</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-22'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-22'>#</a>
+      </div>
+      <p>When I use Vim for blogging or other writing, I like to enable auto-wrapping
+at 80 characters as well as enable spell checking. To be able to switch back
+and forth, I have mapped <code>F7</code> and <code>F9</code> to enable and disable, respectively.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>map <span class="p">&lt;</span>F7<span class="p">&gt;</span> :<span class="k">set</span> <span class="k">spell</span><span class="p">&lt;</span>CR<span class="p">&gt;</span>:<span class="k">set</span> <span class="nb">spellsuggest</span><span class="p">=</span><span class="m">10</span><span class="p">&lt;</span>CR<span class="p">&gt;</span>:<span class="k">set</span> <span class="nb">textwidth</span><span class="p">=</span><span class="m">80</span><span class="p">&lt;</span>CR<span class="p">&gt;</span>:<span class="k">set</span> <span class="nb">wm</span><span class="p">=</span><span class="m">2</span><span class="p">&lt;</span>CR<span class="p">&gt;</span>
+map <span class="p">&lt;</span>F9<span class="p">&gt;</span> :<span class="k">set</span> <span class="nb">nospell</span><span class="p">&lt;</span>CR<span class="p">&gt;</span>:<span class="k">set</span> <span class="nb">textwidth</span><span class="p">=</span><span class="m">0</span><span class="p">&lt;</span>CR<span class="p">&gt;</span>
+
+</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+</div>
+

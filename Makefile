@@ -7,7 +7,7 @@ SUFFIX = .html
 
 # Definitions of Sources
 # TODO change from phony targets to real targets
-DOTFILES := home/bashrc home/bash/alias home/bash/completion home/bash/functions home/bash/prompt home/xmonad/bin/volume.sh install.sh home/Xresources home/xmonad/xmonad.hs
+DOTFILES := home/bashrc home/bash/alias home/bash/completion home/bash/functions home/bash/prompt home/xmonad/bin/volume.sh install.sh home/Xresources home/xmonad/xmonad.hs home/vimrc
 
 # TODO home/bash/dircolors home/xmonad/bin/conky_bar_bottom_left home/xmonad/bin/conky_bar_bottom_right home/xmonad/bin/conky_bar
 
