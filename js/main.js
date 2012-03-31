@@ -63,32 +63,20 @@
           fx.fadeIn({
             node: "menu"
           }).play();
-          fx.animateProperty({
+          return fx.animateProperty({
             node: "body",
             properties: {
               left: 320
-            }
-          }).play();
-          return fx.animateProperty({
-            node: "background",
-            properties: {
-              left: 860
             }
           }).play();
         } else {
           fx.fadeOut({
             node: "menu"
           }).play();
-          fx.animateProperty({
+          return fx.animateProperty({
             node: "body",
             properties: {
               left: 0
-            }
-          }).play();
-          return fx.animateProperty({
-            node: "background",
-            properties: {
-              left: 540
             }
           }).play();
         }

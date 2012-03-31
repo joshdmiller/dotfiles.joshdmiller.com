@@ -88,8 +88,8 @@ a:hover {
 
 #menu {
     position: fixed;
-    overflow-y: auto;
-    overflow-x: hidden;
+    //overflow-y: auto;
+    //overflow-x: hidden;
     top: @navbarHeight;
     bottom: 0;
     width: 300px;
@@ -106,7 +106,7 @@ a:hover {
 
 #body {
     position: fixed;
-    overflow: auto;
+    //overflow: auto;
     top: @navbarHeight;
     bottom: 0;
     right: 0;
@@ -184,14 +184,12 @@ a:hover {
     }
 
     #background {
-      position: fixed;
-      top: 0; left: 860px; right: 0; bottom: 0;
-      background: #f5f5ff;
-      border-left: 1px solid #e5e5ee;
-      z-index: -1;
+        display: none;
+        visibility: none;
     }
 
     #container { 
+      background: #f5f5ff;
         position: relative;
         
         div.section {
@@ -206,6 +204,8 @@ a:hover {
             padding: 10px 25px 1px 20px;
             vertical-align: top;
             text-align: left;
+            border-right: 1px solid #e5e5ee;
+            background-color: #fff;
         }
           
         .docs pre {
