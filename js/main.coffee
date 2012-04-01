@@ -22,9 +22,10 @@ require ["dojo/data/ItemFileReadStore",
 
                 # Time to load the page.
                 require ["dojo/_base/xhr"], (xhr) ->
-                    console.log "Loading file #{actions}.html..."
+                    url = "/dotfiles" + actions
+                    console.log "Loading file #{url}.html..."
                     deferred = dojo.xhrGet
-                        url: "#{actions}.html"
+                        url: "#{url}.html"
                         handleAs: "text"
                         load: (data) ->
                             registry.byId("body").set "content", data

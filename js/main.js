@@ -13,10 +13,11 @@
           console.log("Received request to route to: " + actions);
           registry.byId("body").set("content", "<div class='loadingOverlay'></div>");
           return require(["dojo/_base/xhr"], function(xhr) {
-            var deferred;
-            console.log("Loading file " + actions + ".html...");
+            var deferred, url;
+            url = "/dotfiles" + actions;
+            console.log("Loading file " + url + ".html...");
             return deferred = dojo.xhrGet({
-              url: "" + actions + ".html",
+              url: "" + url + ".html",
               handleAs: "text",
               load: function(data) {
                 return registry.byId("body").set("content", data);

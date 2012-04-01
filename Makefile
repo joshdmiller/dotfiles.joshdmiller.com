@@ -16,13 +16,11 @@ DOTFILES := home/bashrc home/bash/alias home/bash/completion home/bash/functions
 all: clean prepare $(DOTFILES)
 
 clean:
-	rm -rf home/*
-	rm -rf etc/*
-	rm -f install.sh.html
+	rm -rf dotfiles
 
 prepare:
-	mkdir -p home/bash
-	mkdir -p home/xmonad/bin
+	mkdir -p dotfiles/home/bash
+	mkdir -p dotfiles/home/xmonad/bin
 
 $(DOTFILES): 
 	$(DOCTOOL) $(DOTFILES_PATH)/$@
@@ -31,5 +29,5 @@ $(DOTFILES):
 	sed -i 's/<\/body>//' docs/$(BASENAME)$(SUFFIX)
 	sed -i 's/<\/html>//' docs/$(BASENAME)$(SUFFIX)
 	sed -i 's/<div id=background><\/div>//' docs/$(BASENAME)$(SUFFIX)
-	mv docs/$(BASENAME)$(SUFFIX) $(@D)/$(@F)$(SUFFIX)
+	mv docs/$(BASENAME)$(SUFFIX) dotfiles/$(@D)/$(@F)$(SUFFIX)
 
