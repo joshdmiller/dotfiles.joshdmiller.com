@@ -10,20 +10,27 @@
                     { id: 'home/bash/dircolors', name: 'dircolors' },
                     { id: 'home/bash/functions', name: 'functions' },
                     { id: 'home/bash/prompt', name: 'prompt' },
+                    { id: 'home/bash/README.markdown', name: 'README' },
+                ]},
+                { id: 'home/vim', name: '.vim', children: [
+                    { id: 'home/vim/README.markdown', name: 'README' },
                 ]},
                 { id: 'home/xmonad', name: '.xmonad', children: [
                     { id: 'home/xmonad/bin', name: 'bin', children: [
                         { id: 'home/xmonad/bin/conky_bar', name: 'conky_bar' },
                         { id: 'home/xmonad/bin/conky_bar_bottom_left', name: 'conky_bar_bottom_left' },
                         { id: 'home/xmonad/bin/conky_bar_bottom_right', name: 'conky_bar_bottom_right' },
-                        { id: 'home/xmonad/bin/volume.sh', name: 'volume.sh' }
+                        { id: 'home/xmonad/bin/volume.sh', name: 'volume.sh' },
+                        { id: 'home/xmonad/bin/README.markdown', name: 'README' },
                     ] },
                     { id: 'home/xmonad/xmonad.hs', name: 'xmonad.hs' },
                 ]},
                 { id: 'home/bashrc', name: '.bashrc' },
-                { id: 'home/Xresources', name: '.Xresources' },
+                { id: 'home/README.markdown', name: 'README' },
                 { id: 'home/vimrc', name: '.vimrc' },
+                { id: 'home/Xresources', name: '.Xresources' },
             ]},
+            { id: 'README.markdown', name: 'README' },
         ]}
     ]
 }
