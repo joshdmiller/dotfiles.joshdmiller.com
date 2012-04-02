@@ -19,7 +19,7 @@ LESS_STYLES := css/main.css
 
 .PHONY: all clean prepare coffee less $(DOTFILES) $(READMES)
 
-all: clean prepare $(DOTFILES) $(READMES)
+all: clean prepare $(DOTFILES) $(READMES) coffee less
 
 clean:
 	rm -rf dotfiles
